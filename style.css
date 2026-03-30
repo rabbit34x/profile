@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  color: #222;
+  background: #fff;
+  padding: 24px 16px;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #222;
+}
+
+h1 small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #555;
+  margin-left: 8px;
+}
+
+h2 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+
+.progress-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+th, td {
+  padding: 4px 8px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 1px solid #999;
+}
+
+td:first-child,
+th:first-child {
+  text-align: center;
+  color: #555;
+  font-size: 0.75rem;
+}
+
+.slash {
+  background: linear-gradient(to top right, transparent calc(50% - 0.5px), #ccc calc(50% - 0.5px), #ccc calc(50% + 0.5px), transparent calc(50% + 0.5px));
+}
+
+.empty {
+  color: #ccc;
+}
+
+.nc {
+  background: #dbeafe;
+}
+
+.nb {
+  background: #dcfce7;
+}
+
+.nn {
+  background: #fef3c7;
+}
+
+.legend {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  font-size: 0.75rem;
+  margin-top: 8px;
+  color: #555;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ccc;
+}
+
+.skill-row {
+  margin-bottom: 16px;
+}
+
+.skill-label {
+  font-size: 0.8125rem;
+  margin-bottom: 4px;
+  display: flex;
+}
+
+.skill-label .skill-name {
+  width: 2.5em;
+}
+
+.skill-label .skill-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #222;
+  position: relative;
+  border: 1px solid #222;
+}
+
+.progress-bar .target-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  z-index: 1;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-bar-fill.white {
+  background: #e8e8e8;
+}
+
+.progress-bar-fill.orange {
+  background: #e87830;
+}
+
+.progress-bar-fill.orange-grad {
+  background: linear-gradient(to top, #fff, #e87830);
+}
+
+.progress-bar-fill.yellow {
+  background: #d4b800;
+}
+
+.progress-bar-fill.yellow-grad {
+  background: linear-gradient(to top, #fff, #d4b800);
+}
+
+.progress-bar-fill.green {
+  background: #3aad3a;
+}
+
+.progress-bar-fill.green-grad {
+  background: linear-gradient(to top, #fff, #3aad3a);
+}
+
+.progress-bar-fill.blue {
+  background: #3b82f6;
+}
+
+.progress-bar-fill.purple {
+  background: #8b5cf6;
+}
+
+.progress-bar-fill.purple-grad {
+  background: linear-gradient(to top, #fff, #8b5cf6);
+}
+
+.progress-bar-fill.red {
+  background: #dc2626;
+}
+
+.progress-bar-fill.red-grad {
+  background: linear-gradient(to top, #fff, #dc2626);
+}
+
+.progress-bar-fill.bronze {
+  background:
+    linear-gradient(-45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.8) 32%,
+      rgba(255, 255, 255, 0.8) 34%,
+      transparent 36%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.8) 42%,
+      rgba(255, 255, 255, 0.8) 44%,
+      transparent 46%
+    ),
+    #cd7f32;
+}
+
+.progress-bar-fill.silver {
+  background:
+    linear-gradient(-45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.8) 32%,
+      rgba(255, 255, 255, 0.8) 34%,
+      transparent 36%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.8) 42%,
+      rgba(255, 255, 255, 0.8) 44%,
+      transparent 46%
+    ),
+    #b0b0b0;
+}
+
+.progress-bar-fill.gold {
+  background:
+    linear-gradient(-45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.8) 32%,
+      rgba(255, 255, 255, 0.8) 34%,
+      transparent 36%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.8) 42%,
+      rgba(255, 255, 255, 0.8) 44%,
+      transparent 46%
+    ),
+    #daa520;
+}
+
+.progress-bar-fill.rainbow {
+  background: linear-gradient(to right, #ff4444, #ff8833, #ffdd00, #44dd44, #44aaff, #aa66ff);
+}
+
+.progress-bar-fill.blue-grad {
+  background: linear-gradient(to top, #fff, #3b82f6);
+}
+
+.inline-stats {
+  font-size: 0.8125rem;
+  color: #555;
+}
+
+footer {
+  margin-top: 48px;
+  padding-top: 8px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.75rem;
+  color: #999;
+}
