@@ -42,3 +42,39 @@ CIでは `GITHUB_SHA` が設定されている場合、その値を優先しま�
 ```sh
 GITHUB_SHA=<commit-hash> npm run build
 ```
+
+## ギャラリー画像の追加
+
+元画像をカテゴリーに対応するフォルダへ追加します。
+
+```text
+gallery-src/
+├── games/  # ゲームのスクリーンショット
+└── dolls/  # ドールの写真
+```
+
+対応形式は `.jpg`、`.jpeg`、`.png`、`.webp`、`.heic` です。ファイル名からキャプションを生成するため、内容が分かる名前を付けてください。ハイフンとアンダースコアは空白として表示されます。
+
+```text
+gallery-src/games/ff14-絶エデン.jpg
+gallery-src/dolls/夏服コーデ.jpg
+```
+
+画像を追加したらビルドします。
+
+```sh
+npm run build
+```
+
+ビルド時に次の処理を行います。
+
+- 表示用画像を最大幅1600px、品質82のWebPへ変換
+- サムネイルを最大幅480px、品質78のWebPへ変換
+- EXIFなどの画像メタデータを削除
+- `gallery.html` のゲーム・ドール欄を自動更新
+
+生成画像は `images/gallery` に出力されます。このフォルダ内のファイルと、`gallery.html` 内の `gallery:*` マーカーで囲まれた部分は直接編集しないでください。
+
+## トップ画像の最適化
+
+トップ画像の元ファイルは `image-src/profile-doll.jpg` です。`npm run build` を実行すると、最大幅1280px、品質82のWebPへ変換し、`images/profile-doll.webp` に出力します。トップページは生成されたWebPを参照します。

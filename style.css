@@ -70,6 +70,9 @@ body {
 }
 
 .home-visual {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
   padding: 10px;
   border: 6px double #665247;
   background: #f5f0e6;
@@ -135,6 +138,36 @@ body {
 
 .account-service img {
   flex-shrink: 0;
+}
+
+.gallery-section + .gallery-section {
+  margin-top: 28px;
+}
+
+.gallery-section h2 {
+  margin-bottom: 12px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.gallery-grid .empty-state {
+  grid-column: 1 / -1;
+}
+
+.gallery-grid figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-grid figcaption {
+  margin-top: 4px;
+  color: #666;
+  font-size: 0.6875rem;
 }
 
 .post-list {
