@@ -74,6 +74,20 @@ body {
   font-size: 1.125rem;
 }
 
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+}
+
+.page-heading .page-title,
+.page-heading .play-status-legend {
+  margin-bottom: 0;
+}
+
 .empty-state {
   color: #777;
   font-size: 0.8125rem;
@@ -360,7 +374,7 @@ h2 small {
 
 .play-status-legend {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 14px;
   margin-bottom: 12px;
   color: #555;
@@ -374,6 +388,11 @@ h2 small {
 
 .play-status-legend .play-status {
   margin-right: 5px;
+}
+
+.play-status-legend .play-status-legend-label {
+  color: #222;
+  font-weight: 600;
 }
 
 .play-status.frequent {

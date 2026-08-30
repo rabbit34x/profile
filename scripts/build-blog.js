@@ -52,6 +52,7 @@ function parsePost(filename) {
 function layout({ title, active, content, depth = 0 }) {
   const prefix = depth ? "../" : "";
   const topCurrent = active === "top" ? ' aria-current="page"' : "";
+  const gamesCurrent = active === "games" ? ' aria-current="page"' : "";
   const blogCurrent = active === "blog" ? ' aria-current="page"' : "";
 
   return `<!DOCTYPE html>
@@ -69,6 +70,7 @@ function layout({ title, active, content, depth = 0 }) {
     <a class="site-brand" href="${prefix}index.html"><img src="${prefix}favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
     <nav aria-label="メインナビゲーション">
       <a href="${prefix}index.html"${topCurrent}>トップ</a>
+      <a href="${prefix}games.html"${gamesCurrent}>ゲーム記録</a>
       <a href="${prefix}blog.html"${blogCurrent}>ブログ</a>
       <a href="${prefix}accounts.html">アカウント</a>
     </nav>
