@@ -269,30 +269,15 @@ h2 small {
   overflow-x: auto;
 }
 
-.table-title {
-  margin: 12px 0 6px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-}
-
-.ff14-ultimate-table {
-  width: auto;
+.ff14-table {
   min-width: 440px;
-  table-layout: auto;
-  font-size: 0.75rem;
 }
 
-.ff14-ultimate-table th,
-.ff14-ultimate-table td {
-  min-width: 28px;
-  padding: 3px 5px;
-  border-color: #e5e5e5;
+.ff14-table th:first-child {
+  width: 7rem;
 }
 
-.ff14-ultimate-table th:first-child,
-.ff14-ultimate-table td:first-child {
-  min-width: 96px;
-  width: 96px;
+.ff14-table td:first-child {
   text-align: left;
 }
 

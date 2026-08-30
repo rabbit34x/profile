@@ -107,7 +107,7 @@ ${post.body.trimEnd()}
     </article>`;
   fs.writeFileSync(
     path.join(outputDir, `${post.slug}.html`),
-    layout({ title: `${post.title} | Blog`, active: "blog", content, depth: 1 }),
+    layout({ title: `${post.title} | kn_iidx`, active: "blog", content, depth: 1 }),
   );
 }
 
@@ -125,7 +125,7 @@ const indexContent = `    <h1 class="page-title">ブログ</h1>
 ${list}`;
 fs.writeFileSync(
   path.join(root, "blog.html"),
-  layout({ title: "Blog", active: "blog", content: indexContent }),
+  layout({ title: "ブログ | kn_iidx", active: "blog", content: indexContent }),
 );
 
 console.log(`Built ${posts.length} post(s).`);
