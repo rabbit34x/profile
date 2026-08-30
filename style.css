@@ -69,6 +69,19 @@ body {
   min-width: 0;
 }
 
+.home-visual {
+  padding: 10px;
+  border: 6px double #665247;
+  background: #f5f0e6;
+}
+
+.home-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #c8bfae;
+}
+
 .page-title {
   margin-bottom: 16px;
   font-size: 1.125rem;
