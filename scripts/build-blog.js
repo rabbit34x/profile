@@ -60,21 +60,30 @@ function layout({ title, active, content, depth = 0 }) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
+  <link rel="icon" href="${prefix}favicon.ico">
   <link rel="stylesheet" href="${prefix}style.css">
 </head>
 <body>
 <div class="page-shell">
   <aside class="sidebar">
+    <a class="site-brand" href="${prefix}index.html"><img src="${prefix}favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
     <nav aria-label="メインナビゲーション">
       <a href="${prefix}index.html"${topCurrent}>トップ</a>
       <a href="${prefix}blog.html"${blogCurrent}>ブログ</a>
+      <a href="${prefix}accounts.html">アカウント</a>
     </nav>
   </aside>
 
   <main class="page-content">
 ${content}
+    <footer class="site-footer">
+      <span>Last updated: <time data-last-updated></time></span>
+      <span>Commit: <a data-commit></a></span>
+    </footer>
   </main>
 </div>
+<script src="${prefix}site-meta.js"></script>
+<script src="${prefix}site.js"></script>
 </body>
 </html>
 `;

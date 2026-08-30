@@ -22,3 +22,23 @@ description: 一覧に表示する短い説明
 npm install
 npm run build
 ```
+
+## 共通フッター
+
+各ページのフッターには、最終更新日時とGitコミットハッシュを表示します。
+
+- 最終更新日時は、ブラウザが取得したページの `Last-Modified` をJSTで表示します。
+- コミットハッシュは、`npm run build` で生成される `site-meta.js` から表示します。
+- 表示された短縮ハッシュは、GitHubの該当コミットへのリンクになります。
+
+ローカルでは現在のGit HEADを使用します。
+
+```sh
+npm run build
+```
+
+CIでは `GITHUB_SHA` が設定されている場合、その値を優先します。公開するコミットのハッシュを正しく表示するため、デプロイ前に必ずビルドを実行してください。
+
+```sh
+GITHUB_SHA=<commit-hash> npm run build
+```

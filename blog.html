@@ -4,21 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ブログ | kn_iidx</title>
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="page-shell">
   <aside class="sidebar">
+    <a class="site-brand" href="index.html"><img src="favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
     <nav aria-label="メインナビゲーション">
       <a href="index.html">トップ</a>
       <a href="blog.html" aria-current="page">ブログ</a>
+      <a href="accounts.html">アカウント</a>
     </nav>
   </aside>
 
   <main class="page-content">
     <h1 class="page-title">ブログ</h1>
     <p class="empty-state">記事はまだありません。</p>
+    <footer class="site-footer">
+      <span>Last updated: <time data-last-updated></time></span>
+      <span>Commit: <a data-commit></a></span>
+    </footer>
   </main>
 </div>
+<script src="site-meta.js"></script>
+<script src="site.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
   "name": "rabbit34-profile",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-blog.js"
+    "build": "node scripts/build-meta.js && node scripts/build-blog.js"
   },
   "dependencies": {
     "markdown-it": "^14.1.0"

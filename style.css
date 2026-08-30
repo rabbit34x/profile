@@ -30,6 +30,21 @@ body {
   align-self: start;
 }
 
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-brand img {
+  flex-shrink: 0;
+}
+
 .sidebar nav {
   display: grid;
   gap: 8px;
@@ -62,6 +77,41 @@ body {
 .empty-state {
   color: #777;
   font-size: 0.8125rem;
+}
+
+.account-list {
+  border-top: 1px solid #ddd;
+}
+
+.account-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px;
+  border-bottom: 1px solid #ddd;
+  color: #222;
+  font-size: 0.8125rem;
+  text-decoration: none;
+}
+
+.account-item:hover {
+  background: #f8f8f8;
+}
+
+.account-item:hover .account-url {
+  text-decoration: underline;
+}
+
+.account-service {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.account-service img {
+  flex-shrink: 0;
 }
 
 .post-list {
@@ -671,10 +721,18 @@ th:first-child {
   }
 }
 
-footer {
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   margin-top: 48px;
   padding-top: 8px;
   border-top: 1px solid #e0e0e0;
   font-size: 0.75rem;
   color: #999;
+  text-align: right;
+}
+
+.site-footer a {
+  color: inherit;
 }
