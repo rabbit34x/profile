@@ -43,6 +43,16 @@ CIでは `GITHUB_SHA` が設定されている場合、その値を優先しま�
 GITHUB_SHA=<commit-hash> npm run build
 ```
 
+ビルドの最後に、内部HTMLリンク、CSS、JavaScript、favicon、生成画像のURLへ短縮コミットハッシュを付与します。
+
+```text
+style.css?v=1f4822b
+site.js?v=1f4822b
+games.html?v=1f4822b
+```
+
+コミットが変わるとURLも変わるため、ブラウザに古いページやアセットが残っていても、更新済みページのメニューから同じバージョンのHTMLとアセットを取得できます。
+
 ## ギャラリー画像の追加
 
 元画像をカテゴリーに対応するフォルダへ追加します。
