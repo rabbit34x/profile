@@ -93,10 +93,6 @@ body {
   font-size: 0.8125rem;
 }
 
-.account-list {
-  border-top: 1px solid #ddd;
-}
-
 .account-item {
   display: flex;
   align-items: center;
@@ -208,8 +204,7 @@ body {
   font-size: 0.75rem;
 }
 
-section,
-.game-card {
+section {
   position: relative;
   margin-bottom: 12px;
   padding: 14px 14px 30px;
@@ -217,9 +212,25 @@ section,
   background: #fff;
 }
 
-section:last-child,
-.game-card:last-child {
+section:last-child {
   margin-bottom: 0;
+}
+
+.game-card {
+  position: relative;
+  margin: 0;
+  padding: 0 4px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.game-card > summary {
+  margin: 0 -4px;
+  padding: 12px 4px;
+}
+
+.game-card > summary:hover {
+  background: #f8f8f8;
 }
 
 .game-card > summary h2 {
@@ -227,19 +238,12 @@ section:last-child,
   align-items: center;
   gap: 0;
   margin-bottom: 0;
-}
-
-.game-card:not([open]) > summary h2 {
   padding-bottom: 0;
   border-bottom: 0;
 }
 
-.game-card {
-  padding-bottom: 14px;
-}
-
 .game-card .card-updated {
-  top: 18px;
+  top: 15px;
   right: 38px;
   bottom: auto;
 }
@@ -253,8 +257,13 @@ section:last-child,
   line-height: 1;
 }
 
-.game-card[open] > summary h2 {
-  margin-bottom: 10px;
+.game-card[open] {
+  padding-bottom: 12px;
+}
+
+.game-card[open] > summary {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eee;
 }
 
 .game-card[open] > summary h2::after {
@@ -263,13 +272,26 @@ section:last-child,
 
 details.category {
   margin-top: 24px;
-  border: 1px solid #ccc;
-  padding: 16px;
-  background: #f6f6f6;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 details.category:first-of-type {
   margin-top: 0;
+}
+
+details.category > summary h1 {
+  padding: 10px 4px;
+  border-bottom: 1px solid #ddd;
+}
+
+details.category > summary:hover {
+  background: #f8f8f8;
+}
+
+details.category[open] > summary h1 {
+  margin-bottom: 0;
 }
 
 .chart-toggle {
@@ -745,8 +767,6 @@ th:first-child {
   flex-direction: column;
   align-items: flex-end;
   margin-top: 48px;
-  padding-top: 8px;
-  border-top: 1px solid #e0e0e0;
   font-size: 0.75rem;
   color: #999;
   text-align: right;
