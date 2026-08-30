@@ -264,7 +264,7 @@ section:last-child {
 
 .game-card {
   position: relative;
-  margin: 0;
+  margin: 0 0 0 8px;
   padding: 0 4px;
   border-bottom: 1px solid #ddd;
   background: #fff;
@@ -273,10 +273,11 @@ section:last-child {
 .game-card > summary {
   margin: 0 -4px;
   padding: 12px 4px;
+  background: #f6f6f6;
 }
 
 .game-card > summary:hover {
-  background: #f8f8f8;
+  background: #eeeeee;
 }
 
 .game-card > summary h2 {
@@ -286,6 +287,7 @@ section:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 0;
+  font-size: 0.8125rem;
 }
 
 .game-card .card-updated {
@@ -317,7 +319,7 @@ section:last-child {
 }
 
 details.category {
-  margin-top: 24px;
+  margin-top: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -328,8 +330,11 @@ details.category:first-of-type {
 }
 
 details.category > summary h1 {
-  padding: 10px 4px;
+  padding: 12px 4px;
   border-bottom: 1px solid #ddd;
+  color: #555;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 details.category > summary:hover {
