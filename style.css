@@ -12,10 +12,136 @@ body {
   font-family: monospace;
   color: #222;
   background: #fff;
-  padding: 24px 16px;
-  max-width: 640px;
-  margin: 0 auto;
   line-height: 1.6;
+}
+
+.page-shell {
+  display: grid;
+  grid-template-columns: 144px minmax(0, 640px);
+  gap: 32px;
+  width: min(100%, 848px);
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar nav a {
+  color: #666;
+  text-decoration: none;
+}
+
+.sidebar nav a:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+.sidebar nav a[aria-current="page"] {
+  color: #222;
+  text-decoration: underline;
+}
+
+.page-content {
+  min-width: 0;
+}
+
+.page-title {
+  margin-bottom: 16px;
+  font-size: 1.125rem;
+}
+
+.empty-state {
+  color: #777;
+  font-size: 0.8125rem;
+}
+
+.post-list {
+  border-top: 1px solid #ddd;
+}
+
+.post-list-item {
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-list-item time,
+.post-header time {
+  color: #888;
+  font-size: 0.6875rem;
+}
+
+.post-list-item h2 {
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.post-list-item h2 a,
+.post-body a,
+.back-link {
+  color: #222;
+}
+
+.post-list-item p {
+  margin-top: 4px;
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.blog-post {
+  padding: 0;
+  border: 0;
+}
+
+.post-header {
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-header h1 {
+  margin-bottom: 4px;
+}
+
+.post-body > * + * {
+  margin-top: 16px;
+}
+
+.post-body h2,
+.post-body h3 {
+  margin-top: 28px;
+}
+
+.post-body ul,
+.post-body ol {
+  padding-left: 2em;
+}
+
+.post-body pre,
+.post-body blockquote {
+  padding: 12px;
+  background: #f6f6f6;
+  overflow-x: auto;
+}
+
+.post-body code {
+  font-family: inherit;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 0.75rem;
 }
 
 section {
@@ -401,6 +527,28 @@ th:first-child {
 
   .full {
     display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    display: block;
+    padding-top: 16px;
+  }
+
+  .sidebar {
+    position: static;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sidebar nav {
+    display: flex;
+  }
+
+  .sidebar nav a {
+    margin-right: 16px;
   }
 }
 
