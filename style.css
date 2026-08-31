@@ -641,6 +641,15 @@ th:first-child {
   border: 1px solid #ccc;
 }
 
+.achievement-history {
+  margin-top: 24px;
+}
+
+.achievement-history ul {
+  padding-left: 0;
+  list-style: none;
+}
+
 .skill-row {
   margin-bottom: 16px;
 }
