@@ -1,4 +1,28 @@
 (() => {
+  document.querySelectorAll(".sidebar").forEach((sidebar) => {
+    const button = sidebar.querySelector(".menu-toggle");
+    const nav = sidebar.querySelector("nav");
+
+    if (!button || !nav) return;
+
+    const closeMenu = () => {
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "メニューを開く");
+      nav.classList.remove("is-open");
+    };
+
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!isOpen));
+      button.setAttribute("aria-label", isOpen ? "メニューを開く" : "メニューを閉じる");
+      nav.classList.toggle("is-open", !isOpen);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+  });
+
   const updated = new Date(document.lastModified);
 
   if (Number.isNaN(updated.getTime())) return;
