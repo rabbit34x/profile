@@ -1,5 +1,11 @@
 # Profile
 
+## 共通コンポーネント
+
+サイドバーは `scripts/components.js` で一元管理し、`npm run build` 時に各HTMLへ展開します。各ページの `component:sidebar` マーカーで囲まれた範囲は直接編集しないでください。
+
+ナビゲーション項目を変更する場合は `scripts/components.js` を編集してからビルドします。
+
 ## ブログ記事の追加
 
 `posts` ディレクトリに `.md` ファイルを追加します。ファイル名が記事URLになります。

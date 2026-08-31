@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const MarkdownIt = require("markdown-it");
+const { renderSidebar } = require("./components");
 
 const root = path.resolve(__dirname, "..");
 const postsDir = path.join(root, "posts");
@@ -51,10 +52,6 @@ function parsePost(filename) {
 
 function layout({ title, active, content, depth = 0 }) {
   const prefix = depth ? "../" : "";
-  const gamesCurrent = active === "games" ? ' aria-current="page"' : "";
-  const galleryCurrent = active === "gallery" ? ' aria-current="page"' : "";
-  const blogCurrent = active === "blog" ? ' aria-current="page"' : "";
-
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -66,18 +63,7 @@ function layout({ title, active, content, depth = 0 }) {
 </head>
 <body>
 <div class="page-shell">
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <a class="site-brand" href="${prefix}index.html"><img src="${prefix}favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
-    </div>
-    <nav id="main-nav" aria-label="メインナビゲーション">
-      <a href="${prefix}games.html"${gamesCurrent}>ゲーム記録</a>
-      <a href="${prefix}gallery.html"${galleryCurrent}>ギャラリー</a>
-      <a href="${prefix}blog.html"${blogCurrent}>ブログ</a>
-      <a href="${prefix}accounts.html">アカウント</a>
-    </nav>
-  </aside>
+${renderSidebar({ active, prefix })}
 
   <main class="page-content">
 ${content}
