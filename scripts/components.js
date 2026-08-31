@@ -19,6 +19,11 @@ function renderSidebar({ active, prefix = "" }) {
     </div>
     <nav id="main-nav" aria-label="メインナビゲーション">
 ${nav}
+      <div class="sidebar-social" aria-label="ソーシャルリンク">
+        <a rel="me" href="https://x.com/kn_iidx"><img src="https://cdn.simpleicons.org/x/666" alt="" width="14" height="14">X</a>
+        <a rel="me" href="https://www.twitch.tv/kn_iidx"><img src="https://cdn.simpleicons.org/twitch/666" alt="" width="14" height="14">Twitch</a>
+        <a rel="me" href="https://www.youtube.com/@kn_iidx"><img src="https://cdn.simpleicons.org/youtube/666" alt="" width="14" height="14">YouTube</a>
+      </div>
     </nav>
   </aside>
   <!-- /component:sidebar -->`;

@@ -69,6 +69,24 @@ body {
   text-decoration: underline;
 }
 
+.sidebar-social {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+}
+
+.sidebar-social a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-social img {
+  flex-shrink: 0;
+}
+
 .page-content {
   min-width: 0;
 }
