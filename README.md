@@ -55,15 +55,21 @@ GITHUB_SHA=<commit-hash> npm run build
 
 ```text
 gallery-src/
-├── games/  # ゲームのスクリーンショット
-└── dolls/  # ドールの写真
+├── games/   # ゲームのスクリーンショット
+├── dolls/   # ドールの写真
+├── imas/    # アイドルマスター関連の画像
+└── photos/  # 通常の撮影写真
 ```
 
 対応形式は `.jpg`、`.jpeg`、`.png`、`.webp`、`.heic` です。ファイル名からキャプションを生成するため、内容が分かる名前を付けてください。ハイフンとアンダースコアは空白として表示されます。
 
+各カテゴリー内の画像は、EXIFの撮影日時が新しい順に表示されます。EXIFに撮影日時がない場合はファイル名に含まれる日時を使用し、どちらからも取得できない画像は末尾へファイル名順で表示します。
+
 ```text
 gallery-src/games/ff14-絶エデン.jpg
 gallery-src/dolls/夏服コーデ.jpg
+gallery-src/imas/ライブ衣装.jpg
+gallery-src/photos/夕暮れの海.jpg
 ```
 
 画像を追加したらビルドします。
@@ -77,7 +83,7 @@ npm run build
 - 表示用画像を最大幅1600px、品質82のWebPへ変換
 - サムネイルを最大幅480px、品質78のWebPへ変換
 - EXIFなどの画像メタデータを削除
-- `gallery.html` のゲーム・ドール欄を自動更新
+- `gallery.html` のゲーム・ドール・アイマス・写真欄を自動更新
 
 生成画像は `images/gallery` に出力されます。このフォルダ内のファイルと、`gallery.html` 内の `gallery:*` マーカーで囲まれた部分は直接編集しないでください。
 
