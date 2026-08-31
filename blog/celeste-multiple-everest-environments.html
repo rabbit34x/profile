@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CelesteでEverest環境を複数作る方法 | kn_iidx</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page-shell">
+<!-- component:sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a class="site-brand" href="../index.html"><img src="../favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+    <nav id="main-nav" aria-label="メインナビゲーション">
+      <a href="../games.html">ゲーム記録</a>
+      <a href="../gallery.html">ギャラリー</a>
+      <a href="../blog.html" aria-current="page">ブログ</a>
+      <a href="../accounts.html">アカウント</a>
+      <div class="sidebar-social" aria-label="ソーシャルリンク">
+        <a rel="me noopener" href="https://x.com/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/x/666" alt="" width="14" height="14">X</a>
+        <a rel="me noopener" href="https://www.twitch.tv/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/twitch/666" alt="" width="14" height="14">Twitch</a>
+        <a rel="me noopener" href="https://www.youtube.com/@kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/youtube/666" alt="" width="14" height="14">YouTube</a>
+      </div>
+    </nav>
+  </aside>
+  <!-- /component:sidebar -->
+
+  <main class="page-content">
+    <article class="blog-post">
+      <header class="post-header">
+        <h1>CelesteでEverest環境を複数作る方法</h1>
+        <time datetime="2026-09-01">2026-09-01</time>
+      </header>
+      <div class="post-body">
+<p>Celesteで「Speedrun用」「Custom Map用」など、MOD構成の異なるEverest環境を分けて管理する方法です。</p>
+<h2>1. Celesteフォルダをコピーする</h2>
+<p>Steam版Celesteのフォルダを、用途ごとにコピーします。</p>
+<p>例えば以下のようにします。</p>
+<pre><code class="language-text">D:\Steam\steamapps\common\
+
+Celeste\
+Celeste-Speedrun\
+Celeste-CustomMaps\
+</code></pre>
+<p>それぞれ完全に独立した <code>Mods</code> フォルダを持てるため、</p>
+<pre><code class="language-text">Celeste-Speedrun\Mods\
+    ├─ SpeedrunTool
+    ├─ CelesteTAS
+    └─ Speedrun Sheet
+
+Celeste-CustomMaps\Mods\
+    ├─ Custom Maps
+    └─ 各種Helper
+</code></pre>
+<p>のようにMOD構成を分離できます。</p>
+<h2>2. OlympusにInstallationを追加する</h2>
+<p>Olympusの <code>Manage</code> から、コピーしたCelesteをそれぞれInstallationとして登録します。</p>
+<p>例：</p>
+<pre><code class="language-text">Vanilla
+→ D:\Steam\steamapps\common\Celeste
+
+Speedrun
+→ D:\Steam\steamapps\common\Celeste-Speedrun
+
+CustomMaps
+→ D:\Steam\steamapps\common\Celeste-CustomMaps
+</code></pre>
+<p>登録後、それぞれのInstallationを選択してEverestをインストールします。</p>
+<h2>3. steam_appid.txtを作成する</h2>
+<p>Steam版では、この作業が重要です。</p>
+<p>コピーした各Celesteフォルダの <code>Celeste.exe</code> と同じ場所に、</p>
+<pre><code class="language-text">steam_appid.txt
+</code></pre>
+<p>を作成します。</p>
+<p>中身は以下の1行だけです。</p>
+<pre><code class="language-text">504230
+</code></pre>
+<p>例えば、</p>
+<pre><code class="language-text">Celeste-Speedrun\
+├─ Celeste.exe
+├─ steam_appid.txt
+└─ Mods\
+
+Celeste-CustomMaps\
+├─ Celeste.exe
+├─ steam_appid.txt
+└─ Mods\
+</code></pre>
+<p>となります。</p>
+<h2>504230とは？</h2>
+<p><code>504230</code> はCelesteのSteam App IDです。</p>
+<p>Steamではゲームごとに固有のApp IDが割り当てられており、Celesteには <code>504230</code> が割り当てられています。</p>
+<p><code>steam_appid.txt</code> は、その実行ファイルがどのSteamアプリとして動作するのかをSteamworksに認識させるために使用できます。</p>
+<h2>なぜsteam_appid.txtが必要なのか</h2>
+<p>Steamworksには <code>SteamAPI_RestartAppIfNecessary</code> という仕組みがあります。</p>
+<p>ゲームがSteam経由で起動されていない場合、Steamを経由して正規のアプリを起動し直すためのものです。</p>
+<p>そのため、コピーした</p>
+<pre><code class="language-text">Celeste-CustomMaps\Celeste.exe
+</code></pre>
+<p>を直接起動しても、</p>
+<pre><code class="language-text">コピー版Celeste
+    ↓
+Steam
+    ↓
+Steamに登録されているCeleste
+    ↓
+本来のCeleste\Celeste.exe
+</code></pre>
+<p>と、本来のSteam Installationへ戻されることがあります。</p>
+<p>Steamworksの仕様では <code>steam_appid.txt</code> が存在する場合、この再起動処理を回避できます。</p>
+<p>そのためコピーしたCelesteに</p>
+<pre><code class="language-text">steam_appid.txt
+
+504230
+</code></pre>
+<p>を配置することで、それぞれのInstallationを独立して起動できるようになります。</p>
+<h2>完成形</h2>
+<pre><code class="language-text">Celeste\
+└─ Vanilla
+
+Celeste-Speedrun\
+├─ Celeste.exe
+├─ steam_appid.txt  # 504230
+├─ Everest
+└─ Mods\            # Speedrun用
+
+Celeste-CustomMaps\
+├─ Celeste.exe
+├─ steam_appid.txt  # 504230
+├─ Everest
+└─ Mods\            # Custom Map用
+</code></pre>
+<p>あとはOlympusで使用したいInstallationを選択して起動すればOKです。</p>
+<p>これでVanilla、Speedrun、Custom Mapなど、用途ごとにEverest/MOD環境を分離して管理できます。</p>
+      </div>
+      <a class="back-link" href="../blog.html">← 記事一覧</a>
+    </article>
+    <footer class="site-footer">
+      <div class="site-footer-meta">
+        <span>Last updated: <time data-last-updated></time></span>
+        <span>Commit: <a data-commit></a></span>
+      </div>
+      <div class="site-footer-legal">
+        <span>管理者が権利を有するコンテンツは <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a> で提供しています。</span>
+        <span>© 2026 kn_iidx</span>
+      </div>
+    </footer>
+  </main>
+</div>
+<script src="../site-meta.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>
