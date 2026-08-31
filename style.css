@@ -874,13 +874,26 @@ th:first-child {
 }
 
 .site-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   margin-top: 48px;
   font-size: 0.75rem;
   color: #999;
+}
+
+.site-footer-meta,
+.site-footer-legal {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer-meta {
+  align-items: flex-end;
   text-align: right;
+}
+
+.site-footer-legal {
+  align-items: center;
+  margin-top: 24px;
+  text-align: center;
 }
 
 .site-footer a {
