@@ -107,6 +107,13 @@ body {
   border: 1px solid #c8bfae;
 }
 
+.home-visual figcaption {
+  padding: 8px 4px 0;
+  color: #665247;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 .page-title {
   margin-bottom: 16px;
   font-size: 1.125rem;
