@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HPE iLO 4のFWアップデート作業ログ | kn_iidx</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page-shell">
+<!-- component:sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a class="site-brand" href="../index.html"><img src="../favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+    <nav id="main-nav" aria-label="メインナビゲーション">
+      <a href="../games.html">ゲーム記録</a>
+      <a href="../gallery.html">ギャラリー</a>
+      <a href="../blog.html" aria-current="page">ブログ</a>
+      <a href="../accounts.html">アカウント</a>
+      <div class="sidebar-social" aria-label="ソーシャルリンク">
+        <a rel="me noopener" href="https://x.com/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/x/666" alt="" width="14" height="14">X</a>
+        <a rel="me noopener" href="https://www.twitch.tv/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/twitch/666" alt="" width="14" height="14">Twitch</a>
+        <a rel="me noopener" href="https://www.youtube.com/@kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/youtube/666" alt="" width="14" height="14">YouTube</a>
+      </div>
+    </nav>
+  </aside>
+  <!-- /component:sidebar -->
+
+  <main class="page-content">
+    <article class="blog-post">
+      <header class="post-header">
+        <h1>HPE iLO 4のFWアップデート作業ログ</h1>
+        <time datetime="2024-05-04">2024-05-04</time>
+      </header>
+      <div class="post-body">
+<p>FWを2.55から2.82にアップデートしたときの作業ログです。
+参考記事の手順に沿って作業しました。</p>
+<h2>準備</h2>
+<ul>
+<li>Linux環境（WSLのUbuntuを利用）</li>
+</ul>
+<h2>ダウンロード</h2>
+<ul>
+<li><a href="https://support.hpe.com/connect/s/softwaredetails?language=en_US&amp;softwareId=MTX_cbf231cf73f44ba08d49ce5cf6&amp;tab=releaseNotes">HPEのソフトウェア詳細ページ</a>にアクセスし、Download Softwareをクリック</li>
+<li><code>*.scexe</code>にチェックをつけた状態でDownloadをクリック</li>
+</ul>
+<h2>WSL</h2>
+<pre><code class="language-shell">cd /mnt/c/Users/&lt;user&gt;/Downloads
+sh CPXXXXXX.scexe --unpack=.
+</code></pre>
+<p><code>ilo4_282.bin</code>が生成されたことを確認します。</p>
+<h2>iLO</h2>
+<ul>
+<li>iLOの管理画面にログイン</li>
+<li>Administration &gt; Firmwareを開く</li>
+<li>Fileの「ファイルを選択」から先ほど抽出した<code>.bin</code>ファイルを選択し、Uploadをクリック</li>
+</ul>
+<h2>参考記事</h2>
+<ul>
+<li><a href="https://ichibariki.com/entry/2019/05/18/100106">HPE iLO4 ファームウェアアップデート</a></li>
+</ul>
+      </div>
+      <a class="back-link" href="../blog.html">← 記事一覧</a>
+    </article>
+    <footer class="site-footer">
+      <div class="site-footer-meta">
+        <span>Last updated: <time data-last-updated></time></span>
+        <span>Commit: <a data-commit></a></span>
+      </div>
+      <div class="site-footer-legal">
+        <span>管理者が権利を有するコンテンツは <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a> で提供しています。</span>
+        <span>© 2026 kn_iidx</span>
+      </div>
+    </footer>
+  </main>
+</div>
+<script src="../site-meta.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>

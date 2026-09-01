@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxmox環境での画像データ保管方法の検討結果 | kn_iidx</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="page-shell">
+<!-- component:sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a class="site-brand" href="../index.html"><img src="../favicon.ico" alt="" width="32" height="32"><span>kn_iidx</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+    <nav id="main-nav" aria-label="メインナビゲーション">
+      <a href="../games.html">ゲーム記録</a>
+      <a href="../gallery.html">ギャラリー</a>
+      <a href="../blog.html" aria-current="page">ブログ</a>
+      <a href="../accounts.html">アカウント</a>
+      <div class="sidebar-social" aria-label="ソーシャルリンク">
+        <a rel="me noopener" href="https://x.com/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/x/666" alt="" width="14" height="14">X</a>
+        <a rel="me noopener" href="https://www.twitch.tv/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/twitch/666" alt="" width="14" height="14">Twitch</a>
+        <a rel="me noopener" href="https://www.youtube.com/@kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/youtube/666" alt="" width="14" height="14">YouTube</a>
+      </div>
+    </nav>
+  </aside>
+  <!-- /component:sidebar -->
+
+  <main class="page-content">
+    <article class="blog-post">
+      <header class="post-header">
+        <h1>Proxmox環境での画像データ保管方法の検討結果</h1>
+        <time datetime="2025-10-23">2025-10-23</time>
+      </header>
+      <div class="post-body">
+<h2>要件</h2>
+<ul>
+<li>画像容量：10GB程度</li>
+<li>複数のLXCコンテナからアクセス</li>
+<li>タグ管理機能が必要</li>
+<li>簡単に導入できる構成を優先</li>
+</ul>
+<h2>結論：NFSとデータベースによるタグ管理</h2>
+<h3>採用する構成</h3>
+<p><strong>ストレージLXC（NFSサーバー）＋各LXCからマウント＋データベースでタグ管理</strong></p>
+<pre><code class="language-text">[ストレージLXC] - NFSサーバー
+   ↓ NFSマウント
+[配信LXC] - Webサーバー + DB（タグ管理）
+   ↓ NFSマウント
+[処理LXC] - 画像処理など
+</code></pre>
+<h3>この構成を選んだ理由</h3>
+<ol>
+<li>
+<p><strong>NFSが最適な理由</strong></p>
+<ul>
+<li>10GBは小規模なのでNFSで十分</li>
+<li>複数のLXCからのマウントが容易</li>
+<li>設定がシンプルで導入が簡単</li>
+<li>Linux環境での標準的な共有方法</li>
+</ul>
+</li>
+<li>
+<p><strong>タグ管理の実装</strong></p>
+<ul>
+<li>MinIOのタグ機能ではなく、データベース（PostgreSQLやSQLiteなど）で管理</li>
+<li>画像パスとタグを紐付けるテーブルを作成</li>
+<li>SQLで柔軟な検索やフィルタリングが可能</li>
+<li>10GB程度の規模には十分</li>
+</ul>
+</li>
+<li>
+<p><strong>避けた選択肢とその理由</strong></p>
+<ul>
+<li><strong>Proxmoxホストへ直接保存</strong>：ホストOSの汚染や管理の複雑化につながる</li>
+<li><strong>MinIO</strong>：10GBには過剰で、設定の複雑さが要件に合わない</li>
+</ul>
+</li>
+</ol>
+<h3>MinIOを検討すべきだったケース</h3>
+<p>以下の場合は、MinIOの採用を検討する価値があります。</p>
+<ul>
+<li>将来的に数TB規模になる予定</li>
+<li>S3互換APIが必要</li>
+<li>AWS S3へ移行する可能性がある</li>
+<li>複雑なアクセス制御やバージョニングが必要</li>
+</ul>
+      </div>
+      <a class="back-link" href="../blog.html">← 記事一覧</a>
+    </article>
+    <footer class="site-footer">
+      <div class="site-footer-meta">
+        <span>Last updated: <time data-last-updated></time></span>
+        <span>Commit: <a data-commit></a></span>
+      </div>
+      <div class="site-footer-legal">
+        <span>管理者が権利を有するコンテンツは <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a> で提供しています。</span>
+        <span>© 2026 kn_iidx</span>
+      </div>
+    </footer>
+  </main>
+</div>
+<script src="../site-meta.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>
