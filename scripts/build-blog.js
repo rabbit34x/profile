@@ -8,6 +8,72 @@ const postsDir = path.join(root, "posts");
 const outputDir = path.join(root, "blog");
 const markdown = new MarkdownIt({ html: false, linkify: true, typographer: true });
 
+function youtubeVideoId(value) {
+  try {
+    const url = new URL(value);
+    const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+    let videoId = "";
+
+    if (hostname === "youtu.be") {
+      videoId = url.pathname.split("/")[1] || "";
+    } else if (["youtube.com", "m.youtube.com"].includes(hostname)) {
+      if (url.pathname === "/watch") {
+        videoId = url.searchParams.get("v") || "";
+      } else {
+        const match = url.pathname.match(/^\/(?:shorts|embed)\/([^/]+)/);
+        videoId = match?.[1] || "";
+      }
+    }
+
+    return /^[A-Za-z0-9_-]{11}$/.test(videoId) ? videoId : null;
+  } catch {
+    return null;
+  }
+}
+
+function twitterPostUrl(value) {
+  try {
+    const url = new URL(value);
+    const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+    const match = url.pathname.match(/^\/([A-Za-z0-9_]{1,15})\/status\/(\d+)/);
+
+    if (!["x.com", "twitter.com"].includes(hostname) || !match) return null;
+    return `https://twitter.com/${match[1]}/status/${match[2]}`;
+  } catch {
+    return null;
+  }
+}
+
+markdown.block.ruler.before("paragraph", "media_embed", (state, startLine, endLine, silent) => {
+  const start = state.bMarks[startLine] + state.tShift[startLine];
+  const finish = state.eMarks[startLine];
+  const line = state.src.slice(start, finish).trim();
+  const match = line.match(/^@\[(youtube|twitter)\]\((\S+)\)$/);
+
+  if (!match) return false;
+  if (silent) return true;
+
+  const [, service, value] = match;
+  const embedValue = service === "youtube" ? youtubeVideoId(value) : twitterPostUrl(value);
+  if (!embedValue) return false;
+
+  const token = state.push("media_embed", "", 0);
+  token.block = true;
+  token.meta = { service, value: embedValue };
+  state.line = startLine + 1;
+  return true;
+}, { alt: ["paragraph"] });
+
+markdown.renderer.rules.media_embed = (tokens, index) => {
+  const { service, value } = tokens[index].meta;
+
+  if (service === "youtube") {
+    return `<div class="media-embed media-embed-youtube"><iframe src="https://www.youtube-nocookie.com/embed/${value}" title="YouTube動画プレーヤー" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>\n`;
+  }
+
+  return `<div class="media-embed media-embed-twitter"><blockquote class="twitter-tweet"><a href="${value}">${value}</a></blockquote></div>\n`;
+};
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -50,7 +116,7 @@ function parsePost(filename) {
   };
 }
 
-function layout({ title, active, content, depth = 0 }) {
+function layout({ title, active, content, depth = 0, hasTwitterEmbed = false }) {
   const prefix = depth ? "../" : "";
   return `<!DOCTYPE html>
 <html lang="ja">
@@ -81,7 +147,7 @@ ${content}
 </div>
 <script src="${prefix}site-meta.js"></script>
 <script src="${prefix}site.js"></script>
-</body>
+${hasTwitterEmbed ? '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n' : ""}</body>
 </html>
 `;
 }
@@ -113,7 +179,13 @@ ${post.body.trimEnd()}
     </article>`;
   fs.writeFileSync(
     path.join(outputDir, `${post.slug}.html`),
-    layout({ title: `${post.title} | kn_iidx`, active: "blog", content, depth: 1 }),
+    layout({
+      title: `${post.title} | kn_iidx`,
+      active: "blog",
+      content,
+      depth: 1,
+      hasTwitterEmbed: post.body.includes('class="twitter-tweet"'),
+    }),
   );
 }
 

@@ -22,6 +22,18 @@ description: 一覧に表示する短い説明
 
 `title` と `date` は必須です。`date` は `YYYY-MM-DD` 形式で記述します。`description` は省略できます。
 
+## 動画・SNS投稿の埋め込み
+
+YouTube動画とTwitter/Xのポストは、記事内の独立した行に専用記法でURLを記述します。
+
+```md
+@[youtube](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+@[twitter](https://x.com/example/status/1234567890123456789)
+```
+
+YouTubeは通常の動画URL、短縮URL（`youtu.be`）、Shorts URLに対応しています。Twitter/Xは `x.com` と `twitter.com` のポストURLに対応しています。
+
 追加・編集後に次のコマンドを実行すると、`blog.html` と `blog/*.html` が生成されます。
 
 ```sh
