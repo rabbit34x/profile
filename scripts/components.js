@@ -1,6 +1,7 @@
 function renderSidebar({ active, prefix = "" }) {
   const links = [
     ["games", "games.html", "ゲーム記録"],
+    ["log", "log.html", "日々の記録"],
     ["gallery", "gallery.html", "ギャラリー"],
     ["blog", "blog.html", "ブログ"],
     ["accounts", "accounts.html", "アカウント"],

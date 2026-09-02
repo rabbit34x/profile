@@ -955,3 +955,259 @@ th:first-child {
 .site-footer a {
   color: inherit;
 }
+
+/* Daily activity log */
+.daily-heading {
+  align-items: baseline;
+}
+
+.year-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.year-selector select {
+  padding: 2px 6px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+}
+
+.contribution-graph {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.contribution-panel[hidden] {
+  display: none;
+}
+
+.contribution-scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.contribution-table {
+  width: max-content;
+  min-width: 100%;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 2px;
+  table-layout: fixed;
+}
+
+.contribution-table th,
+.contribution-table td {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #777;
+  font-size: 0.625rem;
+  font-weight: 400;
+  line-height: 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.contribution-table thead th {
+  height: 14px;
+  vertical-align: top;
+}
+
+.contribution-table th:first-child {
+  width: 22px;
+  padding-right: 3px;
+  text-align: right;
+}
+
+.contribution-day,
+.contribution-legend i {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgba(27, 31, 35, 0.06);
+  border-radius: 2px;
+}
+
+.contribution-day:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 1px;
+}
+
+.contribution-day.level-0,
+.contribution-legend .level-0 {
+  background: #ebedf0;
+}
+
+.contribution-day.level-1,
+.contribution-legend .level-1 {
+  background: #9be9a8;
+}
+
+.contribution-day.level-2,
+.contribution-legend .level-2 {
+  background: #40c463;
+}
+
+.contribution-day.level-3,
+.contribution-legend .level-3 {
+  background: #30a14e;
+}
+
+.contribution-day.level-4,
+.contribution-legend .level-4 {
+  background: #216e39;
+}
+
+.contribution-day.recorded-zero {
+  border-color: #777;
+  border-style: dashed;
+}
+
+.contribution-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 8px;
+  color: #777;
+  font-size: 0.625rem;
+}
+
+.daily-recent-title {
+  margin: 28px 0 10px;
+  font-size: 0.875rem;
+}
+
+.daily-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: #888;
+  font-size: 0.6875rem;
+}
+
+.daily-entry-meta span:not(:first-of-type) {
+  padding-left: 8px;
+  border-left: 1px solid #ddd;
+}
+
+.daily-entry-body > * + * {
+  margin-top: 28px;
+}
+
+.daily-summary {
+  padding: 0;
+  border: 0;
+  background: #fff;
+}
+
+.daily-summary h2,
+.daily-other h2,
+.daily-category > h2 {
+  margin: 0 0 10px;
+}
+
+.daily-summary p,
+.daily-other p {
+  margin: 0;
+}
+
+.daily-activity {
+  padding: 0 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.daily-activity + .daily-activity {
+  margin-top: 12px;
+}
+
+.daily-activity header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 -14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #ddd;
+  background: #f8f8f8;
+}
+
+.daily-activity h3,
+.post-body .daily-activity h3 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.daily-activity header span {
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: #e6f4ea;
+  color: #216e39;
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.daily-activity dl {
+  margin: 0;
+}
+
+.daily-activity dl > div {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.daily-activity dl > div:last-child {
+  border-bottom: 0;
+}
+
+.daily-activity dt {
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.daily-activity dd {
+  min-width: 0;
+  font-size: 0.8125rem;
+}
+
+.daily-activity > .empty-state {
+  padding: 10px 0;
+}
+
+.daily-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75rem;
+}
+
+.daily-navigation a {
+  color: #222;
+}
+
+@media (max-width: 480px) {
+  .daily-activity dl > div {
+    display: block;
+  }
+
+  .daily-activity dt {
+    margin-bottom: 3px;
+  }
+}

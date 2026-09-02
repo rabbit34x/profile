@@ -2,7 +2,9 @@
   "name": "rabbit34-profile",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-gallery.js && node scripts/build-blog.js && node scripts/build-components.js && node scripts/build-meta.js"
+    "build": "node scripts/build-gallery.js && node scripts/build-blog.js && node scripts/build-daily.js && node scripts/build-components.js && node scripts/build-meta.js",
+    "new-daily": "node scripts/new-daily.js",
+    "daily:edit": "node scripts/edit-daily.js"
   },
   "dependencies": {
     "markdown-it": "^14.1.0"
