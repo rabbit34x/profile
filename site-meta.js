@@ -1,1 +1,1 @@
-window.SITE_META = Object.freeze({"commit":"3f8598c0de08fcaf742866bffa28804adae07f28"});
+window.SITE_META = Object.freeze({"commit":"db15f0907aec7afa1b37c5f2ab13ed2aed1bbbc4"});
