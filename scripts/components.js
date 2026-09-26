@@ -1,7 +1,6 @@
 function renderSidebar({ active, prefix = "" }) {
   const links = [
     ["games", "games.html", "ゲーム記録"],
-    ["log", "log.html", "日々の記録"],
     ["gallery", "gallery.html", "ギャラリー"],
     ["blog", "blog.html", "ブログ"],
     ["accounts", "accounts.html", "アカウント"],
@@ -20,6 +19,7 @@ function renderSidebar({ active, prefix = "" }) {
     </div>
     <nav id="main-nav" aria-label="メインナビゲーション">
 ${nav}
+      <a class="external-nav-link" href="https://garden.rabbit34.org/" target="_blank" rel="noopener noreferrer" aria-label="デジタルガーデン（外部サイト・新しいタブで開く）">デジタルガーデン<svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
       <div class="sidebar-social" aria-label="ソーシャルリンク">
         <a rel="me noopener" href="https://x.com/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/x/666" alt="" width="14" height="14">X</a>
         <a rel="me noopener" href="https://www.twitch.tv/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/twitch/666" alt="" width="14" height="14">Twitch</a>
