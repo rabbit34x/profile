@@ -7,10 +7,11 @@
   <title>ゲーム記録 | kn_iidx</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="games.css">
+
 </head>
 
-<body>
+<body class="games-page">
   <div class="page-shell">
     <!-- component:sidebar -->
   <aside class="sidebar">
@@ -23,7 +24,7 @@
       <a href="gallery.html">ギャラリー</a>
       <a href="blog.html">ブログ</a>
       <a href="accounts.html">アカウント</a>
-      <a class="external-nav-link" href="https://garden.rabbit34.org/" target="_blank" rel="noopener noreferrer" aria-label="デジタルガーデン（外部サイト・新しいタブで開く）">デジタルガーデン<svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
+      <a class="external-nav-link" href="https://garden.rabbit34.org/" target="_blank" rel="noopener noreferrer" aria-label="ノート（外部サイト・新しいタブで開く）">ノート<svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
       <div class="sidebar-social" aria-label="ソーシャルリンク">
         <a rel="me noopener" href="https://x.com/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/x/666" alt="" width="14" height="14">X</a>
         <a rel="me noopener" href="https://www.twitch.tv/kn_iidx" target="_blank"><img src="https://cdn.simpleicons.org/twitch/666" alt="" width="14" height="14">Twitch</a>
@@ -35,255 +36,132 @@
 
     <main class="page-content">
 
-      <div class="page-heading">
-        <h1 class="page-title">ゲーム記録</h1>
-        <div class="play-status-legend" aria-label="プレイ頻度">
-          <span class="play-status-legend-label">プレイ頻度:</span>
-          <span><i class="play-status frequent"></i>高頻度</span>
-          <span><i class="play-status occasional"></i>たまに</span>
-          <span><i class="play-status paused"></i>休止中</span>
-        </div>
-      </div>
+<header class="records-intro"><h1>ゲーム記録<span aria-hidden="true">.</span></h1><div class="records-count"><span><strong>11</strong> ゲーム</span><span><strong>2</strong> よく遊ぶ</span><span><strong>4</strong> ジャンル</span></div></header>
+<form class="record-filters" hidden aria-label="ゲームを絞り込む">
+<fieldset><legend>ジャンル</legend><div class="filter-options">
+<label><input type="radio" name="genre" value="all" checked><span>すべて</span></label>
+<label><input type="radio" name="genre" value="rhythm"><span>音楽ゲーム</span></label>
+<label><input type="radio" name="genre" value="stg"><span>シューティング</span></label>
+<label><input type="radio" name="genre" value="speedrun"><span>TA / RTA</span></label>
+<label><input type="radio" name="genre" value="online"><span>オンライン / MMO</span></label>
+</div></fieldset>
+<fieldset><legend>プレイ頻度</legend><div class="filter-options">
+<label><input type="radio" name="frequency" value="all" checked><span>すべて</span></label>
+<label><input type="radio" name="frequency" value="frequent"><span>よく遊ぶ</span></label>
+<label><input type="radio" name="frequency" value="occasional"><span>ときどき</span></label>
+<label><input type="radio" name="frequency" value="paused"><span>休止中</span></label>
+</div></fieldset>
+<div class="filter-result"><p role="status" aria-live="polite" id="record-result-count">11 / 11 ゲーム</p><button type="reset" disabled>絞り込みを解除</button></div>
+</form>
+<div class="record-masonry" id="game-records">
+<article class="record-card" data-genre="online" data-frequency="frequent" id="ff14">
+<header class="record-header"><div><h3>FF14</h3></div><span class="record-status frequent">よく遊ぶ</span></header>
+<div class="record-overview"><p class="record-label">絶コンテンツ</p><p class="record-value">7種類クリア</p><p class="record-note">ロール別の達成記録</p></div>
 
-      <details class="category">
-        <summary>
-          <h1>音楽ゲーム<i data-lucide="plus" class="toggle-icon toggle-closed"></i><i data-lucide="minus"
-              class="toggle-icon toggle-open"></i></h1>
-        </summary>
-
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status paused" aria-label="休止中"></span>GITADORA <small>目標: 虹ネーム</small><span
-                class="card-updated">更新: -</span></h2>
-          </summary>
-          <div class="skill-row">
-            <div class="skill-label"><span class="skill-name">GF</span><span class="skill-value">7527.90 / 9500</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-bar-fill silver" style="width: 79.2%;"></div>
-              <div class="target-line" style="left: 73.7%; background: #cd7f32;"></div>
-              <div class="target-line" style="left: 78.9%; background: #b0b0b0;"></div>
-              <div class="target-line" style="left: 84.2%; background: #daa520;"></div>
-              <div class="target-line" style="left: 89.5%; background: #e00;"></div>
-            </div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-label"><span class="skill-name">DM</span><span class="skill-value">4836.90 / 9500</span>
-            </div>
-            <div class="progress-bar">
-              <div class="progress-bar-fill blue-grad" style="width: 50.9%;"></div>
-              <div class="target-line" style="left: 73.7%; background: #cd7f32;"></div>
-              <div class="target-line" style="left: 78.9%; background: #b0b0b0;"></div>
-              <div class="target-line" style="left: 84.2%; background: #daa520;"></div>
-              <div class="target-line" style="left: 89.5%; background: #e00;"></div>
-            </div>
-          </div>
-          <details class="chart-toggle">
-            <summary>Skill推移<i data-lucide="plus" class="toggle-icon toggle-closed"></i><i data-lucide="minus"
-                class="toggle-icon toggle-open"></i></summary>
-            <div id="skill-chart" style="margin-top: 8px; border: 1px solid #222; background: #000;"></div>
-          </details>
-          <p style="font-size: 0.75rem; margin-top: 8px;"><a href="https://gsv.fun/ja/galaxywave_delta/1599/g">GF
-              Skill帳</a> / <a href="https://gsv.fun/ja/galaxywave_delta/1599/d">DM Skill帳</a></p>
-        </details>
-
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status occasional" aria-label="たまにプレイ"></span>beatmaniaIIDX <small>目標:
-                未難2桁</small><span class="card-updated">更新: -</span></h2>
-          </summary>
-          <div class="progress-table">
-            <table>
+<details class="record-details"><summary>ロール別の達成表を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
+            <table class="ff14-table">
               <thead>
                 <tr>
                   <th class="slash"></th>
-                  <th><span class="full">初段</span><span class="short">初</span></th>
-                  <th><span class="full">二段</span><span class="short">二</span></th>
-                  <th><span class="full">三段</span><span class="short">三</span></th>
-                  <th><span class="full">四段</span><span class="short">四</span></th>
-                  <th><span class="full">五段</span><span class="short">五</span></th>
-                  <th><span class="full">六段</span><span class="short">六</span></th>
-                  <th><span class="full">七段</span><span class="short">七</span></th>
-                  <th><span class="full">八段</span><span class="short">八</span></th>
-                  <th><span class="full">九段</span><span class="short">九</span></th>
-                  <th><span class="full">十段</span><span class="short">十</span></th>
-                  <th><span class="full">中伝</span><span class="short">中</span></th>
-                  <th><span class="full">皆伝</span><span class="short">皆</span></th>
+                  <th>MT</th>
+                  <th>ST</th>
+                  <th>PH</th>
+                  <th>BH</th>
+                  <th>D1</th>
+                  <th>D2</th>
+                  <th>D3</th>
+                  <th>D4</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>SP</td>
-                  <td class="nc">RA</td>
-                  <td class="nc">RA</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">LC</td>
-                  <td class="nc">SB</td>
-                  <td class="nc">SB</td>
-                  <td class="nc">RT</td>
+                  <td>絶バハムート</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">占</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
                 </tr>
                 <tr>
-                  <td>DP</td>
-                  <td class="nc">HV</td>
-                  <td class="nc">HV</td>
-                  <td class="nc">HV</td>
-                  <td class="nc">HV</td>
-                  <td class="nc">HV</td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
+                  <td>絶アルテマ</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">学</td>
+                  <td class="empty">-</td>
+                  <td class="nc">機</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                </tr>
+                <tr>
+                  <td>絶アレキ</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">学</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                </tr>
+                <tr>
+                  <td>絶竜詩</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">占</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                </tr>
+                <tr>
+                  <td>絶オメガ</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">占</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">ピ</td>
+                </tr>
+                <tr>
+                  <td>絶エデン</td>
+                  <td class="nc">ナ</td>
+                  <td class="empty">-</td>
+                  <td class="nc">占</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">竜</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                </tr>
+                <tr>
+                  <td>絶妖星乱舞</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="nc">占</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
+                  <td class="empty">-</td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </details>
-
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status paused" aria-label="休止中"></span>BMS <small>目標: ★★</small><span
-                class="card-updated">更新: -</span></h2>
-          </summary>
-          <div class="progress-table">
-            <table>
-              <thead>
-                <tr>
-                  <th class="slash"></th>
-                  <th><span class="full">★1</span><span class="short">1</span></th>
-                  <th><span class="full">★2</span><span class="short">2</span></th>
-                  <th><span class="full">★3</span><span class="short">3</span></th>
-                  <th><span class="full">★4</span><span class="short">4</span></th>
-                  <th><span class="full">★5</span><span class="short">5</span></th>
-                  <th><span class="full">★6</span><span class="short">6</span></th>
-                  <th><span class="full">★7</span><span class="short">7</span></th>
-                  <th><span class="full">★8</span><span class="short">8</span></th>
-                  <th><span class="full">★9</span><span class="short">9</span></th>
-                  <th><span class="full">★10</span><span class="short">10</span></th>
-                  <th><span class="full">★★</span><span class="short">皆</span></th>
-                  <th><span class="full">(^^)</span><span class="short">OJ</span></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>発B</td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="progress-table" style="margin-top: 12px;">
-            <table>
-              <thead>
-                <tr>
-                  <th class="slash"></th>
-                  <th>0</th>
-                  <th>1</th>
-                  <th>2</th>
-                  <th>3</th>
-                  <th>4</th>
-                  <th>5</th>
-                  <th>6</th>
-                  <th>7</th>
-                  <th>8</th>
-                  <th>9</th>
-                  <th>10</th>
-                  <th>11</th>
-                  <th>12</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>sl</td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="nc"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                </tr>
-                <tr>
-                  <td>st</td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                  <td class="empty"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="font-size: 0.75rem; margin-top: 8px;"><a
-              href="https://boku.tachi.ac/u/kn_iidx/games/bms/7K">Bokutachi IR</a></p>
-        </details>
-
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status paused" aria-label="休止中"></span>DJMAX RESPECT V <small>目標: THE LORD OF DJMAX
-                (4B)</small><span class="card-updated">更新: -</span></h2>
-          </summary>
-          <div class="skill-row">
-            <div class="skill-label"><span class="skill-name">4B</span><span class="skill-value">TREND SETTER I —
-                9349.7050 / 10000</span></div>
-            <div class="progress-bar">
-              <div class="progress-bar-fill orange" style="width: 93.5%;"></div>
-            </div>
-          </div>
-          <p style="font-size: 0.75rem; margin-top: 8px;"><a
-              href="https://v-archive.net/archive/rabbit34/board/4/13">v-archive</a></p>
-        </details>
-
-      </details>
-
-      <script src="chart.js"></script>
-
-      <details class="category">
-        <summary>
-          <h1>STG<i data-lucide="plus" class="toggle-icon toggle-closed"></i><i data-lucide="minus"
-              class="toggle-icon toggle-open"></i></h1>
-        </summary>
-
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status frequent" aria-label="高頻度"></span>東方Project <small>目標: 全作品NNC</small><span
-                class="card-updated">更新: 2026-08-31</span></h2>
-          </summary>
-          <div class="progress-table">
+          <p class="inline-stats"><a href="https://knt-a.com/a-resume/34409143/">履歴書</a></p></div></details>
+<p class="record-updated">記録更新 <time datetime="2026-08-20">2026.08.20 </time></p>
+</article>
+<article class="record-card" data-genre="stg" data-frequency="frequent" id="touhou">
+<header class="record-header"><div><h3>東方Project</h3></div><span class="record-status frequent">よく遊ぶ</span></header>
+<div class="record-overview"><p class="record-label">Normal ノーコンティニュー</p><p class="record-value">10 / 15</p><p class="record-note">作品クリア</p></div>
+<p class="record-goal"><span>目標</span>全作品NNC</p>
+<details class="record-details"><summary>達成表と履歴を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
             <table>
               <thead>
                 <tr>
@@ -419,22 +297,226 @@
               <li>2026/08/30 虹龍洞 ENN 早苗</li>
               <li>2026/08/31 虹龍洞 NNC 霊夢</li>
             </ul>
+          </div></div></details>
+<p class="record-updated">記録更新 <time datetime="2026-08-31">2026.08.31 </time></p>
+</article>
+<article class="record-card" data-genre="rhythm" data-frequency="paused" id="gitadora">
+<header class="record-header"><div><h3>GITADORA</h3></div><span class="record-status paused">休止中</span></header>
+<div class="record-overview record-metrics"><div><p class="record-label">GF Skill</p><p class="record-value">7527.90</p></div><div><p class="record-label">DM Skill</p><p class="record-value">4836.90</p></div></div>
+<p class="record-goal"><span>目標</span>虹ネーム</p>
+<details class="record-details"><summary>スキルと推移を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="skill-row">
+            <div class="skill-label"><span class="skill-name">GF</span><span class="skill-value">7527.90 / 9500</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar-fill silver" style="width: 79.2%;"></div>
+              <div class="target-line" style="left: 73.7%; background: #cd7f32;"></div>
+              <div class="target-line" style="left: 78.9%; background: #b0b0b0;"></div>
+              <div class="target-line" style="left: 84.2%; background: #daa520;"></div>
+              <div class="target-line" style="left: 89.5%; background: #e00;"></div>
+            </div>
           </div>
-        </details>
-      </details>
+          <div class="skill-row">
+            <div class="skill-label"><span class="skill-name">DM</span><span class="skill-value">4836.90 / 9500</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar-fill blue-grad" style="width: 50.9%;"></div>
+              <div class="target-line" style="left: 73.7%; background: #cd7f32;"></div>
+              <div class="target-line" style="left: 78.9%; background: #b0b0b0;"></div>
+              <div class="target-line" style="left: 84.2%; background: #daa520;"></div>
+              <div class="target-line" style="left: 89.5%; background: #e00;"></div>
+            </div>
+          </div>
+          <details class="chart-toggle">
+            <summary>Skill推移<span class="toggle-icon toggle-closed" aria-hidden="true">＋</span><span class="toggle-icon toggle-open" aria-hidden="true">−</span></summary>
+            <div id="skill-chart" style="margin-top: 8px; border: 1px solid #222; background: #000;"></div>
+          </details>
+          <p style="font-size: 0.75rem; margin-top: 8px;"><a href="https://gsv.fun/ja/galaxywave_delta/1599/g">GF
+              Skill帳</a> / <a href="https://gsv.fun/ja/galaxywave_delta/1599/d">DM Skill帳</a></p></div></details>
 
-      <details class="category">
-        <summary>
-          <h1>TA / RTA<i data-lucide="plus" class="toggle-icon toggle-closed"></i><i data-lucide="minus"
-              class="toggle-icon toggle-open"></i></h1>
-        </summary>
+</article>
+<article class="record-card" data-genre="rhythm" data-frequency="occasional" id="iidx">
+<header class="record-header"><div><h3>beatmania IIDX</h3></div><span class="record-status occasional">ときどき</span></header>
+<div class="record-overview record-metrics"><div><p class="record-label">SP 段位</p><p class="record-value">皆伝</p></div><div><p class="record-label">DP 段位</p><p class="record-value">五段</p></div></div>
+<p class="record-goal"><span>目標</span>未難2桁</p>
+<details class="record-details"><summary>段位の達成表を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="slash"></th>
+                  <th><span class="full">初段</span><span class="short">初</span></th>
+                  <th><span class="full">二段</span><span class="short">二</span></th>
+                  <th><span class="full">三段</span><span class="short">三</span></th>
+                  <th><span class="full">四段</span><span class="short">四</span></th>
+                  <th><span class="full">五段</span><span class="short">五</span></th>
+                  <th><span class="full">六段</span><span class="short">六</span></th>
+                  <th><span class="full">七段</span><span class="short">七</span></th>
+                  <th><span class="full">八段</span><span class="short">八</span></th>
+                  <th><span class="full">九段</span><span class="short">九</span></th>
+                  <th><span class="full">十段</span><span class="short">十</span></th>
+                  <th><span class="full">中伝</span><span class="short">中</span></th>
+                  <th><span class="full">皆伝</span><span class="short">皆</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SP</td>
+                  <td class="nc">RA</td>
+                  <td class="nc">RA</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">LC</td>
+                  <td class="nc">SB</td>
+                  <td class="nc">SB</td>
+                  <td class="nc">RT</td>
+                </tr>
+                <tr>
+                  <td>DP</td>
+                  <td class="nc">HV</td>
+                  <td class="nc">HV</td>
+                  <td class="nc">HV</td>
+                  <td class="nc">HV</td>
+                  <td class="nc">HV</td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></div></details>
 
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status occasional" aria-label="たまにプレイ"></span>Celeste<span class="card-updated">更新:
-                -</span></h2>
-          </summary>
-          <table class="ta-records">
+</article>
+<article class="record-card" data-genre="rhythm" data-frequency="paused" id="bms">
+<header class="record-header"><div><h3>BMS</h3></div><span class="record-status paused">休止中</span></header>
+<div class="record-overview record-metrics"><div><p class="record-label">発狂BMS 段位</p><p class="record-value">★6</p></div><div><p class="record-label">Satellite 段位</p><p class="record-value">sl2</p></div></div>
+<p class="record-goal"><span>目標</span>★★</p>
+<details class="record-details"><summary>段位の達成表を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
+            <table>
+              <thead>
+                <tr>
+                  <th class="slash"></th>
+                  <th><span class="full">★1</span><span class="short">1</span></th>
+                  <th><span class="full">★2</span><span class="short">2</span></th>
+                  <th><span class="full">★3</span><span class="short">3</span></th>
+                  <th><span class="full">★4</span><span class="short">4</span></th>
+                  <th><span class="full">★5</span><span class="short">5</span></th>
+                  <th><span class="full">★6</span><span class="short">6</span></th>
+                  <th><span class="full">★7</span><span class="short">7</span></th>
+                  <th><span class="full">★8</span><span class="short">8</span></th>
+                  <th><span class="full">★9</span><span class="short">9</span></th>
+                  <th><span class="full">★10</span><span class="short">10</span></th>
+                  <th><span class="full">★★</span><span class="short">皆</span></th>
+                  <th><span class="full">(^^)</span><span class="short">OJ</span></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>発B</td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="progress-table" style="margin-top: 12px;">
+            <table>
+              <thead>
+                <tr>
+                  <th class="slash"></th>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                  <th>8</th>
+                  <th>9</th>
+                  <th>10</th>
+                  <th>11</th>
+                  <th>12</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>sl</td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="nc"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                </tr>
+                <tr>
+                  <td>st</td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                  <td class="empty"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.75rem; margin-top: 8px;"><a
+              href="https://boku.tachi.ac/u/kn_iidx/games/bms/7K">Bokutachi IR</a></p></div></details>
+
+</article>
+<article class="record-card" data-genre="rhythm" data-frequency="paused" id="djmax">
+<header class="record-header"><div><h3>DJMAX RESPECT V</h3></div><span class="record-status paused">休止中</span></header>
+<div class="record-overview"><p class="record-label">4B Rating</p><p class="record-value">9349.7050</p><p class="record-note">TREND SETTER I</p></div>
+<p class="record-goal"><span>目標</span>THE LORD OF DJMAX (4B)</p>
+<details class="record-details"><summary>スコアの詳細を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="skill-row">
+            <div class="skill-label"><span class="skill-name">4B</span><span class="skill-value">TREND SETTER I —
+                9349.7050 / 10000</span></div>
+            <div class="progress-bar">
+              <div class="progress-bar-fill orange" style="width: 93.5%;"></div>
+            </div>
+          </div>
+          <p style="font-size: 0.75rem; margin-top: 8px;"><a
+              href="https://v-archive.net/archive/rabbit34/board/4/13">v-archive</a></p></div></details>
+
+</article>
+<article class="record-card" data-genre="speedrun" data-frequency="occasional" id="celeste">
+<header class="record-header"><div><h3>Celeste</h3></div><span class="record-status occasional">ときどき</span></header>
+<div class="record-overview"><p class="record-label">Any% 自己ベスト</p><p class="record-value">37:05.232</p><p class="record-note">3カテゴリーの記録</p></div>
+
+<details class="record-details"><summary>すべてのタイムを見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><table class="ta-records">
             <thead>
               <tr>
                 <th>Category</th>
@@ -455,15 +537,14 @@
                 <td>0:21:35.870</td>
               </tr>
             </tbody>
-          </table>
-        </details>
+          </table></div></details>
 
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status paused" aria-label="休止中"></span>魔女の家MV<span class="card-updated">更新: -</span>
-            </h2>
-          </summary>
-          <table class="ta-records">
+</article>
+<article class="record-card" data-genre="speedrun" data-frequency="paused" id="witch">
+<header class="record-header"><div><h3>魔女の家MV</h3></div><span class="record-status paused">休止中</span></header>
+<div class="record-overview record-metrics"><div><p class="record-label">Easy / Normal<br>True Ending</p><p class="record-value">14:33</p></div><div><p class="record-label">Extra<br>True Ending</p><p class="record-value">17:38</p></div></div>
+
+<details class="record-details"><summary>すべてのタイムを見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><table class="ta-records">
             <thead>
               <tr>
                 <th>Category</th>
@@ -480,146 +561,33 @@
                 <td>17:38</td>
               </tr>
             </tbody>
-          </table>
-        </details>
-      </details>
+          </table></div></details>
 
-      <details class="category">
-        <summary>
-          <h1>Online / MMO<i data-lucide="plus" class="toggle-icon toggle-closed"></i><i data-lucide="minus"
-              class="toggle-icon toggle-open"></i></h1>
-        </summary>
+</article>
+<article class="record-card" data-genre="online" data-frequency="occasional" id="lol">
+<header class="record-header"><div><h3>League of Legends</h3></div><span class="record-status occasional">ときどき</span></header>
+<div class="record-overview"><p class="record-label">最高ランク</p><p class="record-value">プラチナ</p><p class="record-note">万年ゴールド</p></div>
 
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status frequent" aria-label="高頻度でプレイ"></span>FF14<span class="card-updated">更新:
-                2026-08-20</span></h2>
-          </summary>
-          <div class="progress-table">
-            <table class="ff14-table">
-              <thead>
-                <tr>
-                  <th class="slash"></th>
-                  <th>MT</th>
-                  <th>ST</th>
-                  <th>PH</th>
-                  <th>BH</th>
-                  <th>D1</th>
-                  <th>D2</th>
-                  <th>D3</th>
-                  <th>D4</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>絶バハムート</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">占</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                </tr>
-                <tr>
-                  <td>絶アルテマ</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">学</td>
-                  <td class="empty">-</td>
-                  <td class="nc">機</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                </tr>
-                <tr>
-                  <td>絶アレキ</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">学</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                </tr>
-                <tr>
-                  <td>絶竜詩</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">占</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                </tr>
-                <tr>
-                  <td>絶オメガ</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">占</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">ピ</td>
-                </tr>
-                <tr>
-                  <td>絶エデン</td>
-                  <td class="nc">ナ</td>
-                  <td class="empty">-</td>
-                  <td class="nc">占</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">竜</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                </tr>
-                <tr>
-                  <td>絶妖星乱舞</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="nc">占</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                  <td class="empty">-</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="inline-stats"><a href="https://knt-a.com/a-resume/34409143/">履歴書</a></p>
-        </details>
 
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status occasional" aria-label="たまにプレイ"></span>League of Legends<span
-                class="card-updated">更新: 2026-08-20</span></h2>
-          </summary>
-          <p class="inline-stats">万年ゴールド 最高プラチナ</p>
-        </details>
+<p class="record-updated">記録更新 <time datetime="2026-08-20">2026.08.20 </time></p>
+</article>
+<article class="record-card" data-genre="online" data-frequency="paused" id="maple">
+<header class="record-header"><div><h3>MapleStory (JMS)</h3></div><span class="record-status paused">休止中</span></header>
+<div class="record-overview"><p class="record-label">レン</p><p class="record-value">Lv. 280</p></div>
 
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status paused" aria-label="休止中"></span>MapleStory (JMS)<span class="card-updated">更新:
-                2026-08-31</span></h2>
-          </summary>
-          <p class="inline-stats">レン 280</p>
-        </details>
 
-        <details class="game-card">
-          <summary>
-            <h2><span class="play-status paused" aria-label="休止中"></span>PSO2NGS<span class="card-updated">更新:
-                2026-08-20</span></h2>
-          </summary>
-          <p class="inline-stats">5鯖</p>
-        </details>
-      </details>
+<p class="record-updated">記録更新 <time datetime="2026-08-31">2026.08.31 </time></p>
+</article>
+<article class="record-card" data-genre="online" data-frequency="paused" id="pso">
+<header class="record-header"><div><h3>PSO2NGS</h3></div><span class="record-status paused">休止中</span></header>
+<div class="record-overview"><p class="record-label">プレイサーバー</p><p class="record-value">5鯖</p></div>
 
-      <script>lucide.createIcons();</script>
+
+<p class="record-updated">記録更新 <time datetime="2026-08-20">2026.08.20 </time></p>
+</article>
+</div>
+<p class="record-empty" hidden>条件に合うゲームはありません。</p>
+<script src="chart.js"></script>
 
       <footer class="site-footer">
         <div class="site-footer-meta">
@@ -637,6 +605,7 @@
 
   <script src="site-meta.js"></script>
   <script src="site.js"></script>
+  <script src="games.js"></script>
 </body>
 
 </html>
