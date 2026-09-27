@@ -7,7 +7,6 @@ const pages = {
   "index.html": "top",
   "games.html": "games",
   "gallery.html": "gallery",
-  "blog.html": "blog",
   "accounts.html": "accounts",
 };
 const sidebarPattern = /<!-- component:sidebar -->[\s\S]*?<!-- \/component:sidebar -->/;
