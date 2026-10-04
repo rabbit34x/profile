@@ -2,6 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const decodeHeic = require("heic-decode");
 const sharp = require("sharp");
+const { validateGalleryGroups } = require("./gallery-groups");
 
 const root = path.resolve(__dirname, "..");
 const galleryFile = path.join(root, "gallery.html");
@@ -13,6 +14,7 @@ const homeImage = {
   output: path.join(root, "images", "profile-doll.webp"),
 };
 const categories = [
+  { key: "ff14", source: "ff14", output: "ff14", groupsFile: "groups.json" },
   { key: "games", source: "games", output: "games" },
   { key: "dolls", source: "dolls", output: "dolls" },
   { key: "imas", source: "imas", output: "imas" },
@@ -119,16 +121,22 @@ async function buildCategory(category) {
   const fullDirectory = path.join(outputRoot, category.output, "full");
   const thumbnailDirectory = path.join(outputRoot, category.output, "thumbs");
   fs.mkdirSync(sourceDirectory, { recursive: true });
+  const filenames = fs.readdirSync(sourceDirectory)
+    .filter((filename) => supportedExtensions.has(path.extname(filename).toLowerCase()));
+  const groups = category.groupsFile
+    ? validateGalleryGroups(JSON.parse(fs.readFileSync(path.join(sourceDirectory, category.groupsFile), "utf8")), filenames)
+    : null;
   clearDirectory(fullDirectory);
   clearDirectory(thumbnailDirectory);
 
-  const files = await Promise.all(fs.readdirSync(sourceDirectory)
-    .filter((filename) => supportedExtensions.has(path.extname(filename).toLowerCase()))
+  const files = groups
+    ? groups.flatMap((group) => group.images.map((filename) => ({ filename, group })))
+    : await Promise.all(filenames
     .map(async (filename) => ({
       filename,
       takenAt: await getTakenAt(path.join(sourceDirectory, filename), filename),
     })));
-  files.sort((a, b) => {
+  if (!groups) files.sort((a, b) => {
     if (a.takenAt !== null && b.takenAt !== null && a.takenAt !== b.takenAt) return b.takenAt - a.takenAt;
     if (a.takenAt !== null && b.takenAt === null) return -1;
     if (a.takenAt === null && b.takenAt !== null) return 1;
@@ -136,8 +144,9 @@ async function buildCategory(category) {
   });
   const outputNames = new Set();
   const figures = [];
+  const figuresByFilename = new Map();
 
-  for (const { filename } of files) {
+  for (const { filename, group } of files) {
     const basename = path.basename(filename, path.extname(filename));
     const outputName = `${basename}.webp`;
     const outputKey = outputName.toLowerCase();
@@ -159,14 +168,32 @@ async function buildCategory(category) {
       .webp({ quality: 78, effort: 4 })
       .toFile(path.join(thumbnailDirectory, outputName));
 
-    const caption = captionFromFilename(filename);
+    const dateMatch = filename.match(/(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})/);
+    const caption = group && dateMatch
+      ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]} ${dateMatch[4]}:${dateMatch[5]}:${dateMatch[6]}`
+      : captionFromFilename(filename);
+    const alt = group ? `${group.title} 固定クリア ${caption}` : caption;
     const encodedName = encodeURIComponent(outputName);
-    figures.push(`      <figure>
-        <a href="images/gallery/${category.output}/full/${encodedName}"><img src="images/gallery/${category.output}/thumbs/${encodedName}" alt="${escapeHtml(caption)}" width="${thumbnail.width}" height="${thumbnail.height}" loading="lazy"></a>
+    const figure = `      <figure>
+        <a href="images/gallery/${category.output}/full/${encodedName}"><img src="images/gallery/${category.output}/thumbs/${encodedName}" alt="${escapeHtml(alt)}" width="${thumbnail.width}" height="${thumbnail.height}" loading="lazy"></a>
         <figcaption>${escapeHtml(caption)}</figcaption>
-      </figure>`);
+      </figure>`;
+    figures.push(figure);
+    figuresByFilename.set(filename, figure);
 
     console.log(`Optimized ${category.source}/${filename} (${full.width}x${full.height})`);
+  }
+
+  if (groups) {
+    const sections = groups.map((group) => `      <div class="gallery-subcategory" id="${category.key}-${group.id}" data-gallery-group="${group.id}" aria-labelledby="${category.key}-${group.id}-title">
+        <h3 id="${category.key}-${group.id}-title">${escapeHtml(group.title)}</h3>
+        <div class="gallery-grid">
+${group.images.map((filename) => figuresByFilename.get(filename)).join("\n")}
+        </div>
+      </div>`).join("\n");
+    return `      <div id="${category.key}-groups">
+${sections}
+      </div>`;
   }
 
   return figures.length

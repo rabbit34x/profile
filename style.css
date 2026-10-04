@@ -187,6 +187,18 @@ body {
   margin-bottom: 12px;
 }
 
+.gallery-subcategory { margin-bottom: 24px; }
+
+.gallery-subcategory h3 {
+  margin-bottom: 10px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.gallery-subcategory .gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
