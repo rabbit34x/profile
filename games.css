@@ -128,3 +128,17 @@
   font-weight: 400;
 }
 .games-page .page-title { letter-spacing: .04em; }
+.record-caption { display: none; }
+.record-card:has(.record-open) > .record-caption,
+.record-modal-content > .record-caption { display: block; margin: 16px 0 0; color: #666; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.record-card:has(.record-open) > .record-overview,
+.record-card:has(.record-open) > .record-goal,
+.record-card:has(.record-open) > .record-updated,
+.record-card:has(.record-open) .record-header .record-status { display: none; }
+.record-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; color: #6e655a; font-size: 10px; }
+.record-tags span { padding: 2px 7px; border: 1px solid #e8e5df; border-radius: 3px; }
+.record-modal-content > .record-status { margin-bottom: 16px; }
+.event-history h3 { margin-bottom: 20px; font-family: Georgia, "Yu Mincho", "Hiragino Mincho ProN", "Times New Roman", serif; font-size: 16px; font-weight: 400; }
+.event-history h4 { margin: 24px 0 8px; color: #6e655a; font-size: 12px; font-weight: 600; }
+.event-history ul { margin: 0; padding: 0; list-style: none; }
+.event-history li { padding: 10px 0; border-bottom: 1px solid #e8e5df; font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }

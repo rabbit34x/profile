@@ -4,16 +4,23 @@
   const count = document.querySelector('#record-result-count');
   const empty = document.querySelector('.record-empty');
   const reset = filters.querySelector('[type="reset"]');
+  const tagLabels = { game: 'ゲーム', anime: 'アニメ', manga: '漫画', vtuber: 'VTuber' };
+  const tagsOf = (card) => (card.dataset.tags || '').split(/\s+/).filter(Boolean);
+  document.querySelectorAll('[data-record-count]').forEach((element) => {
+    const type = element.dataset.recordCount;
+    element.textContent = type === 'all' ? cards.length : cards.filter((card) => tagsOf(card).includes(type)).length;
+  });
   const applyFilters = () => {
-    const genre = filters.querySelector('[name="genre"]:checked').value;
+    const type = filters.querySelector('[name="tag"]:checked').value;
     let visible = 0;
     cards.forEach((card) => {
-      card.hidden = !(genre === 'all' || card.dataset.genre === genre);
+      card.hidden = !(type === 'all' || tagsOf(card).includes(type));
       if (!card.hidden) visible++;
     });
-    count.textContent = `${visible} / ${cards.length} ゲーム`;
+    count.textContent = `${visible} / ${cards.length} 件`;
+    empty.textContent = tagLabels[type] ? `${tagLabels[type]}はまだ登録されていません。` : '該当する趣味はありません。';
     empty.hidden = visible !== 0;
-    reset.disabled = genre === 'all';
+    reset.disabled = type === 'all';
   };
   filters.addEventListener('change', applyFilters);
   filters.addEventListener('submit', (event) => event.preventDefault());
@@ -81,6 +88,15 @@
   });
 
   cards.forEach((card) => {
+    const tags = document.createElement('div');
+    tags.className = 'record-tags';
+    tagsOf(card).forEach((tag) => {
+      if (!tagLabels[tag]) return;
+      const label = document.createElement('span');
+      label.textContent = tagLabels[tag];
+      tags.append(label);
+    });
+    card.append(tags);
     const details = card.querySelector('.record-details');
     const body = details?.querySelector('.record-detail-body');
     const button = document.createElement('button');
@@ -94,7 +110,10 @@
       if (dialog.open) return;
       active = { details, body, button, scrollX: window.scrollX, scrollY: window.scrollY, overflow: document.documentElement.style.overflow };
       title.textContent = card.querySelector('h3').textContent;
-      content.append(card.querySelector('.record-overview').cloneNode(true));
+      const status = card.querySelector('.record-status');
+      if (status) content.append(status.cloneNode(true));
+      const overview = card.querySelector('.record-overview') || card.querySelector('.record-caption');
+      if (overview) content.append(overview.cloneNode(true));
       const goal = card.querySelector('.record-goal');
       if (goal) content.append(goal.cloneNode(true));
       if (body) content.append(body);

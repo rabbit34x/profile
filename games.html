@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ゲーム記録 | kn_iidx</title>
+  <title>趣味 | kn_iidx</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="games.css?v=20261005-serif">
+  <link rel="stylesheet" href="games.css?v=20261005-idolmaster">
 
 </head>
 
@@ -20,7 +20,7 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
     </div>
     <nav id="main-nav" aria-label="メインナビゲーション">
-      <a href="games.html" aria-current="page">ゲーム記録</a>
+      <a href="games.html" aria-current="page">趣味</a>
       <a href="gallery.html">ギャラリー</a>
       <a href="accounts.html">アカウント</a>
       <a class="external-nav-link" href="https://garden.rabbit34.org/" target="_blank" rel="noopener noreferrer" aria-label="ノート（外部サイト・新しいタブで開く）">ノート<svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3"/><path d="M21 14v7H3V3h7"/></svg></a>
@@ -35,20 +35,21 @@
 
     <main class="page-content">
 
-<header class="records-intro"><h1 class="page-title">ゲーム記録</h1><div class="records-count"><span><strong>12</strong> ゲーム</span><span><strong>2</strong> よく遊ぶ</span><span><strong>4</strong> ジャンル</span></div></header>
-<form class="record-filters" hidden aria-label="ゲームを絞り込む">
-<fieldset><legend>ジャンル</legend><div class="filter-options">
-<label><input type="radio" name="genre" value="all" checked><span>すべて</span></label>
-<label><input type="radio" name="genre" value="rhythm"><span>音楽ゲーム</span></label>
-<label><input type="radio" name="genre" value="stg"><span>シューティング</span></label>
-<label><input type="radio" name="genre" value="speedrun"><span>TA / RTA</span></label>
-<label><input type="radio" name="genre" value="online"><span>オンライン / MMO</span></label>
+<header class="records-intro"><h1 class="page-title">趣味</h1><div class="records-count"><span><strong data-record-count="all">13</strong> 件</span></div></header>
+<form class="record-filters" hidden aria-label="趣味を絞り込む">
+<fieldset><legend>タグ</legend><div class="filter-options">
+<label><input type="radio" name="tag" value="all" checked><span>すべて</span></label>
+<label><input type="radio" name="tag" value="game"><span>ゲーム</span></label>
+<label><input type="radio" name="tag" value="anime"><span>アニメ</span></label>
+<label><input type="radio" name="tag" value="manga"><span>漫画</span></label>
+<label><input type="radio" name="tag" value="vtuber"><span>VTuber</span></label>
 </div></fieldset>
-<div class="filter-result"><p role="status" aria-live="polite" id="record-result-count">12 / 12 ゲーム</p><button type="reset" disabled>絞り込みを解除</button></div>
+<div class="filter-result"><p role="status" aria-live="polite" id="record-result-count">13 / 13 件</p><button type="reset" disabled>絞り込みを解除</button></div>
 </form>
 <div class="record-masonry" id="game-records">
-<article class="record-card" data-genre="online" data-frequency="frequent" id="ff14">
+<article class="record-card" data-tags="game" data-genre="online" data-frequency="frequent" id="ff14">
 <header class="record-header"><div><h3>FF14</h3></div><span class="record-status frequent">よく遊ぶ</span></header>
+<p class="record-caption">絶コンテンツ 7種類クリア</p>
 <div class="record-overview"><p class="record-label">絶コンテンツ</p><p class="record-value">7種類クリア</p><p class="record-note">ロール別の達成記録</p></div>
 
 <details class="record-details"><summary>ロール別の達成表を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
@@ -150,8 +151,9 @@
           <p class="inline-stats"><a href="https://knt-a.com/a-resume/34409143/">履歴書</a></p></div></details>
 <p class="record-updated">記録更新 <time datetime="2026-10-03">2026.10.03</time></p>
 </article>
-<article class="record-card" data-genre="stg" data-frequency="frequent" id="touhou">
+<article class="record-card" data-tags="game" data-genre="stg" data-frequency="frequent" id="touhou">
 <header class="record-header"><div><h3>東方Project</h3></div><span class="record-status frequent">よく遊ぶ</span></header>
+<p class="record-caption">Normal ノーコンティニュー 10 / 15</p>
 <div class="record-overview"><p class="record-label">Normal ノーコンティニュー</p><p class="record-value">10 / 15</p><p class="record-note">作品クリア</p></div>
 <p class="record-goal"><span>目標</span>全作品NNC</p>
 <details class="record-details"><summary>達成表と履歴を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
@@ -293,8 +295,9 @@
           </div></div></details>
 <p class="record-updated">記録更新 <time datetime="2026-08-31">2026.08.31 </time></p>
 </article>
-<article class="record-card" data-genre="rhythm" data-frequency="paused" id="gitadora">
+<article class="record-card" data-tags="game" data-genre="rhythm" data-frequency="paused" id="gitadora">
 <header class="record-header"><div><h3>GITADORA</h3></div><span class="record-status paused">休止中</span></header>
+<p class="record-caption">GF Skill 7527.90 ／ DM Skill 4836.90</p>
 <div class="record-overview record-metrics"><div><p class="record-label">GF Skill</p><p class="record-value">7527.90</p></div><div><p class="record-label">DM Skill</p><p class="record-value">4836.90</p></div></div>
 <p class="record-goal"><span>目標</span>虹ネーム</p>
 <details class="record-details"><summary>スキルと推移を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="skill-row">
@@ -327,8 +330,9 @@
               Skill帳</a> / <a href="https://gsv.fun/ja/galaxywave_delta/1599/d">DM Skill帳</a></p></div></details>
 
 </article>
-<article class="record-card" data-genre="rhythm" data-frequency="occasional" id="iidx">
+<article class="record-card" data-tags="game" data-genre="rhythm" data-frequency="occasional" id="iidx">
 <header class="record-header"><div><h3>beatmania IIDX</h3></div><span class="record-status occasional">ときどき</span></header>
+<p class="record-caption">SP 皆伝 ／ DP 五段</p>
 <div class="record-overview record-metrics"><div><p class="record-label">SP 段位</p><p class="record-value">皆伝</p></div><div><p class="record-label">DP 段位</p><p class="record-value">五段</p></div></div>
 <p class="record-goal"><span>目標</span>未難2桁</p>
 <details class="record-details"><summary>段位の達成表を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
@@ -386,8 +390,9 @@
           </div></div></details>
 
 </article>
-<article class="record-card" data-genre="rhythm" data-frequency="paused" id="bms">
+<article class="record-card" data-tags="game" data-genre="rhythm" data-frequency="paused" id="bms">
 <header class="record-header"><div><h3>BMS</h3></div><span class="record-status paused">休止中</span></header>
+<p class="record-caption">発狂BMS ★6 ／ Satellite sl2</p>
 <div class="record-overview record-metrics"><div><p class="record-label">発狂BMS 段位</p><p class="record-value">★6</p></div><div><p class="record-label">Satellite 段位</p><p class="record-value">sl2</p></div></div>
 <p class="record-goal"><span>目標</span>★★</p>
 <details class="record-details"><summary>段位の達成表を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="progress-table">
@@ -490,8 +495,9 @@
               href="https://boku.tachi.ac/u/kn_iidx/games/bms/7K">Bokutachi IR</a></p></div></details>
 
 </article>
-<article class="record-card" data-genre="rhythm" data-frequency="paused" id="djmax">
+<article class="record-card" data-tags="game" data-genre="rhythm" data-frequency="paused" id="djmax">
 <header class="record-header"><div><h3>DJMAX RESPECT V</h3></div><span class="record-status paused">休止中</span></header>
+<p class="record-caption">4B Rating 9349.7050</p>
 <div class="record-overview"><p class="record-label">4B Rating</p><p class="record-value">9349.7050</p><p class="record-note">TREND SETTER I</p></div>
 <p class="record-goal"><span>目標</span>THE LORD OF DJMAX (4B)</p>
 <details class="record-details"><summary>スコアの詳細を見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="skill-row">
@@ -505,8 +511,9 @@
               href="https://v-archive.net/archive/rabbit34/board/4/13">v-archive</a></p></div></details>
 
 </article>
-<article class="record-card" data-genre="speedrun" data-frequency="occasional" id="celeste">
+<article class="record-card" data-tags="game" data-genre="speedrun" data-frequency="occasional" id="celeste">
 <header class="record-header"><div><h3>Celeste</h3></div><span class="record-status occasional">ときどき</span></header>
+<p class="record-caption">Any% 自己ベスト 37:05.232</p>
 <div class="record-overview"><p class="record-label">Any% 自己ベスト</p><p class="record-value">37:05.232</p><p class="record-note">3カテゴリーの記録</p></div>
 
 <details class="record-details"><summary>すべてのタイムを見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><table class="ta-records">
@@ -533,8 +540,9 @@
           </table></div></details>
 
 </article>
-<article class="record-card" data-genre="speedrun" data-frequency="paused" id="witch">
+<article class="record-card" data-tags="game" data-genre="speedrun" data-frequency="paused" id="witch">
 <header class="record-header"><div><h3>魔女の家MV</h3></div><span class="record-status paused">休止中</span></header>
+<p class="record-caption">True Ending：Easy / Normal 14:33 ／ Extra 17:38</p>
 <div class="record-overview record-metrics"><div><p class="record-label">Easy / Normal<br>True Ending</p><p class="record-value">14:33</p></div><div><p class="record-label">Extra<br>True Ending</p><p class="record-value">17:38</p></div></div>
 
 <details class="record-details"><summary>すべてのタイムを見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><table class="ta-records">
@@ -557,34 +565,68 @@
           </table></div></details>
 
 </article>
-<article class="record-card" data-genre="online" data-frequency="occasional" id="lol">
+<article class="record-card" data-tags="game" data-genre="online" data-frequency="occasional" id="lol">
 <header class="record-header"><div><h3>League of Legends</h3></div><span class="record-status occasional">ときどき</span></header>
+<p class="record-caption">最高ランク プラチナ</p>
 <div class="record-overview"><p class="record-label">最高ランク</p><p class="record-value">プラチナ</p><p class="record-note">万年ゴールド</p></div>
 
 
 <p class="record-updated">記録更新 <time datetime="2026-08-20">2026.08.20 </time></p>
 </article>
-<article class="record-card" data-genre="online" data-frequency="occasional" id="eternal-return">
+<article class="record-card" data-tags="game" data-genre="online" data-frequency="occasional" id="eternal-return">
 <header class="record-header"><div><h3>Eternal Return</h3></div><span class="record-status occasional">ときどき遊ぶ</span></header>
+<p class="record-caption">メイン エステル</p>
 <div class="record-overview"><p class="record-label">メイン</p><p class="record-value">エステル</p></div>
 <p class="record-updated">記録更新 <time datetime="2026-10-05">2026.10.05</time></p>
 </article>
-<article class="record-card" data-genre="online" data-frequency="paused" id="maple">
+<article class="record-card" data-tags="game" data-genre="online" data-frequency="paused" id="maple">
 <header class="record-header"><div><h3>MapleStory (JMS)</h3></div><span class="record-status paused">休止中</span></header>
+<p class="record-caption">レン Lv. 280</p>
 <div class="record-overview"><p class="record-label">レン</p><p class="record-value">Lv. 280</p></div>
 
 
 <p class="record-updated">記録更新 <time datetime="2026-08-31">2026.08.31 </time></p>
 </article>
-<article class="record-card" data-genre="online" data-frequency="paused" id="pso">
+<article class="record-card" data-tags="game" data-genre="online" data-frequency="paused" id="pso">
 <header class="record-header"><div><h3>PSO2NGS</h3></div><span class="record-status paused">休止中</span></header>
+<p class="record-caption">プレイサーバー 5鯖</p>
 <div class="record-overview"><p class="record-label">プレイサーバー</p><p class="record-value">5鯖</p></div>
 
 
 <p class="record-updated">記録更新 <time datetime="2026-08-20">2026.08.20 </time></p>
 </article>
+<article class="record-card" data-tags="game anime manga" id="idolmaster">
+<header class="record-header"><div><h3>THE IDOLM@STER</h3></div></header>
+<p class="record-caption">伊織・律子担当P</p>
+<details class="record-details"><summary>参加イベントを見る<span aria-hidden="true">＋</span></summary><div class="record-detail-body"><div class="event-history">
+<h3>参加イベント</h3>
+<h4>AS</h4>
+<ul>
+<li>ムビマス チアリング MOVIXさいたま</li>
+<li>9th 東京体育館</li>
+<li>10th 西武ドーム</li>
+<li>初星宴舞 MOVIXさいたま</li>
+<li>はんげつであえたら 前橋</li>
+<li>RE:FLAME 京都ロームシアター</li>
+<li>ハッチポッチフェスティバル2 SSA</li>
+<li>いつまでもなかよし 千葉</li>
+<li>ふたごぼしのつばさ Zepp羽田</li>
+<li>つみまちよるまち Zepp羽田</li>
+</ul>
+<h4>ミリオン</h4>
+<ul>
+<li>5th SSA</li>
+<li>ミリアニ先行上映 豊洲</li>
+<li>10th K-arena</li>
+</ul>
+<h4>シンデレラ</h4>
+<ul>
+<li>6th 西武ドーム</li>
+</ul>
+</div></div></details>
+</article>
 </div>
-<p class="record-empty" hidden>条件に合うゲームはありません。</p>
+<p class="record-empty" hidden>該当する趣味はありません。</p>
 <script src="chart.js"></script>
 
       <footer class="site-footer">
@@ -603,7 +645,7 @@
 
   <script src="site-meta.js"></script>
   <script src="site.js"></script>
-  <script src="games.js?v=20261005-genre-only"></script>
+  <script src="games.js?v=20261005-idolmaster"></script>
 </body>
 
 </html>
