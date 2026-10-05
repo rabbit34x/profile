@@ -6,16 +6,14 @@
   const reset = filters.querySelector('[type="reset"]');
   const applyFilters = () => {
     const genre = filters.querySelector('[name="genre"]:checked').value;
-    const frequency = filters.querySelector('[name="frequency"]:checked').value;
     let visible = 0;
     cards.forEach((card) => {
-      card.hidden = !((genre === 'all' || card.dataset.genre === genre)
-        && (frequency === 'all' || card.dataset.frequency === frequency));
+      card.hidden = !(genre === 'all' || card.dataset.genre === genre);
       if (!card.hidden) visible++;
     });
     count.textContent = `${visible} / ${cards.length} ゲーム`;
     empty.hidden = visible !== 0;
-    reset.disabled = genre === 'all' && frequency === 'all';
+    reset.disabled = genre === 'all';
   };
   filters.addEventListener('change', applyFilters);
   filters.addEventListener('submit', (event) => event.preventDefault());

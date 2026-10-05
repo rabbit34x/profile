@@ -7,7 +7,7 @@
   <title>ゲーム記録 | kn_iidx</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="games.css">
+  <link rel="stylesheet" href="games.css?v=20261005-genre-only">
 
 </head>
 
@@ -35,7 +35,7 @@
 
     <main class="page-content">
 
-<header class="records-intro"><h1>ゲーム記録<span aria-hidden="true">.</span></h1><div class="records-count"><span><strong>12</strong> ゲーム</span><span><strong>2</strong> よく遊ぶ</span><span><strong>4</strong> ジャンル</span></div></header>
+<header class="records-intro"><h1 class="page-title">ゲーム記録</h1><div class="records-count"><span><strong>12</strong> ゲーム</span><span><strong>2</strong> よく遊ぶ</span><span><strong>4</strong> ジャンル</span></div></header>
 <form class="record-filters" hidden aria-label="ゲームを絞り込む">
 <fieldset><legend>ジャンル</legend><div class="filter-options">
 <label><input type="radio" name="genre" value="all" checked><span>すべて</span></label>
@@ -43,12 +43,6 @@
 <label><input type="radio" name="genre" value="stg"><span>シューティング</span></label>
 <label><input type="radio" name="genre" value="speedrun"><span>TA / RTA</span></label>
 <label><input type="radio" name="genre" value="online"><span>オンライン / MMO</span></label>
-</div></fieldset>
-<fieldset><legend>プレイ頻度</legend><div class="filter-options">
-<label><input type="radio" name="frequency" value="all" checked><span>すべて</span></label>
-<label><input type="radio" name="frequency" value="frequent"><span>よく遊ぶ</span></label>
-<label><input type="radio" name="frequency" value="occasional"><span>ときどき</span></label>
-<label><input type="radio" name="frequency" value="paused"><span>休止中</span></label>
 </div></fieldset>
 <div class="filter-result"><p role="status" aria-live="polite" id="record-result-count">12 / 12 ゲーム</p><button type="reset" disabled>絞り込みを解除</button></div>
 </form>
@@ -609,7 +603,7 @@
 
   <script src="site-meta.js"></script>
   <script src="site.js"></script>
-  <script src="games.js"></script>
+  <script src="games.js?v=20261005-genre-only"></script>
 </body>
 
 </html>
