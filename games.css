@@ -1,3 +1,17 @@
+/* games.html 専用スタイル。
+   「昔の個人サイト」の質感（明朝見出し・ベージュ基調）は意図として維持し、
+   色数・余白・並びのばらつきだけを系統化した改訂版（2026-11-09）。
+   色はこの変数に集約する。新しく色を足すときはここへ1色だけ追加すること。 */
+.games-page {
+  --paper: #f7f4ee;
+  --line: #ddd5c6;
+  --line-soft: #e9e3d6;
+  --ink-brown: #524c44;
+  --ink-brown-soft: #6e655a;
+  --cell-1: #f5f1e8;
+  --cell-2: #ece5d5;
+  --cell-3: #e0d5bd;
+}
 .games-page a:focus-visible, .games-page summary:focus-visible {
   outline: 2px solid #555;
   outline-offset: 5px;
@@ -5,10 +19,10 @@
 }
 .records-intro { margin-bottom: 24px; }
 .records-count { display: flex; gap: 26px; margin-top: 16px; color: #666; font-size: 11px; }
-.records-count strong { margin-right: 5px; font-size: 19px; font-weight: 400; color: #222; }
-.record-card { position: relative; min-width: 0; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 22px; overflow: hidden; }
-.record-masonry { columns: 2; column-gap: 16px; }
-.record-masonry > .record-card { display: inline-block; width: 100%; margin-bottom: 16px; break-inside: avoid; vertical-align: top; }
+.records-count strong { margin-right: 5px; font-size: 19px; font-weight: 400; color: #111; }
+.record-card { position: relative; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 20px; overflow: hidden; }
+.record-masonry { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.record-masonry > .record-card { min-width: 0; }
 .record-masonry > .record-card[hidden], .record-filters[hidden], .record-empty[hidden] { display: none; }
 .record-filters { margin-bottom: 24px; }
 .record-filters fieldset { display: flex; flex-wrap: wrap; align-items: center; border: 0; min-width: 0; margin: 0 0 14px; padding: 0; }
@@ -16,8 +30,8 @@
 .filter-options { display: flex; flex-wrap: wrap; gap: 6px; }
 .filter-options label { position: relative; cursor: pointer; }
 .filter-options input { position: absolute; width: 1px; height: 1px; opacity: 0; }
-.filter-options span { display: block; padding: 8px 12px; border: 1px solid #ddd; border-radius: 5px; color: #666; font-size: 12px; }
-.filter-options label:hover span { background: #f5f5f5; }
+.filter-options span { display: block; padding: 8px 12px; border: 1px solid var(--line); border-radius: 3px; color: #666; font-size: 12px; }
+.filter-options label:hover span { background: var(--paper); }
 .filter-options input:checked + span { background: #333; color: #fff; border-color: #333; }
 .filter-options input:focus-visible + span { outline: 2px solid #555; outline-offset: 3px; }
 .filter-result { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; color: #777; font-size: 11px; }
@@ -25,37 +39,36 @@
 .filter-result button:disabled { opacity: .4; cursor: default; text-decoration: none; }
 .record-empty { padding: 48px 0; text-align: center; color: #777; font-size: 13px; }
 @media (max-width: 540px) {
-  .record-masonry { columns: 1; }
-  .record-masonry > .record-card { margin-bottom: 12px; }
+  .record-masonry { grid-template-columns: 1fr; gap: 12px; }
 }
 .record-header { display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 8px; }
 .record-header h3 { font-size: 16px; font-weight: 400; letter-spacing: .015em; line-height: 1.6; overflow-wrap: anywhere; }
-.record-status { flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; border-radius: 4px; font-size: 10px; background: #f6f6f6; color: #777; }
+.record-status { flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; border-radius: 3px; font-size: 10px; background: var(--paper); color: #777; }
 .record-status::before { content: ""; width: 4px; height: 4px; background: currentColor; border-radius: 50%; }
 .record-status.frequent, .record-status.occasional { color: #555; }
-.record-overview { margin: 26px 0 22px; }
+.record-overview { margin: 22px 0 18px; }
 .record-label { font-size: 11px; color: #777; }
-.record-value { margin: 5px 0; font-size: clamp(24px, 2.8vw, 32px); font-weight: 400; letter-spacing: .01em; line-height: 1.5; font-variant-numeric: lining-nums tabular-nums; overflow-wrap: anywhere; }
+.record-value { margin: 5px 0; font-size: clamp(26px, 3vw, 34px); font-weight: 400; letter-spacing: .01em; line-height: 1.5; color: #111; font-variant-numeric: lining-nums tabular-nums; overflow-wrap: anywhere; }
 .record-note { font-size: 11px; color: #666; }
 .record-card .record-note { display: none; }
 .record-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .record-metrics > div { min-width: 0; }
 .record-metrics .record-value { font-size: 20px; white-space: nowrap; }
-.record-goal { display: flex; gap: 9px; align-items: baseline; font-size: 11px; color: #524c44; background: #f5f3ef; padding: 9px 10px; border-radius: 5px; margin-bottom: 16px; }
-.record-goal span { flex-shrink: 0; color: #6e655a; font-size: 10px; }
-.record-details { border-top: 1px solid #ddd; }
+.record-goal { display: flex; gap: 9px; align-items: baseline; font-size: 11px; color: var(--ink-brown); background: var(--paper); border: 1px solid var(--line-soft); padding: 9px 10px; border-radius: 3px; margin-bottom: 16px; }
+.record-goal span { flex-shrink: 0; color: var(--ink-brown-soft); font-size: 10px; }
+.record-details { border-top: 1px solid var(--line-soft); }
 .record-details[hidden] { display: none; }
 .record-open { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; padding: 0; border: 0; border-radius: inherit; background: transparent; cursor: pointer; }
-.record-card:has(.record-open:hover) { border-color: #999; }
+.record-card:has(.record-open:hover) { border-color: var(--ink-brown-soft); }
 .games-page .record-open:focus-visible { outline: 2px solid #555; outline-offset: -3px; }
 .games-page button:focus-visible { outline: 2px solid #555; outline-offset: 4px; }
-.record-modal { position: fixed; inset: 0; width: min(900px, calc(100% - 64px)); height: calc(100dvh - 64px); max-width: none; max-height: none; margin: auto; padding: 0; border: 1px solid #ddd; border-radius: 12px; background: #fff; color: #222; box-shadow: 0 18px 70px #0002; }
+.record-modal { position: fixed; inset: 0; width: min(900px, calc(100% - 64px)); height: calc(100dvh - 64px); max-width: none; max-height: none; margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: #222; box-shadow: 0 18px 70px #0002; }
 .record-modal::backdrop { background: rgb(0 0 0 / 28%); }
 .record-modal[open] { display: flex; flex-direction: column; }
-.record-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-shrink: 0; padding: 20px max(24px, calc((100% - 1040px) / 2)); border-bottom: 1px solid #ddd; }
+.record-modal-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-shrink: 0; padding: 20px max(24px, calc((100% - 1040px) / 2)); border-bottom: 1px solid var(--line-soft); }
 .record-modal-header h2 { margin: 0; padding: 0; border: 0; font-size: 22px; overflow-wrap: anywhere; }
-.record-modal-close { display: flex; align-items: center; gap: 12px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border: 1px solid #ddd; border-radius: 6px; background: #fff; color: #444; font: inherit; font-size: 13px; cursor: pointer; }
-.record-modal-close:hover { background: #f5f5f5; }
+.record-modal-close { display: flex; align-items: center; gap: 12px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: #444; font: inherit; font-size: 13px; cursor: pointer; }
+.record-modal-close:hover { background: var(--paper); }
 .record-modal-close span { font-size: 22px; }
 .record-modal-content { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 28px max(24px, calc((100% - 1040px) / 2)) 60px; }
 .record-modal .record-overview { margin: 0 0 22px; }
@@ -65,7 +78,7 @@
 .record-modal .record-detail-body .skill-value { font-size: 14px; }
 .record-modal .record-detail-body .progress-table { padding-bottom: 8px; }
 @media (max-width: 540px) {
-  .record-modal { width: calc(100% - 24px); height: calc(100dvh - 32px); border-radius: 10px; }
+  .record-modal { width: calc(100% - 24px); height: calc(100dvh - 32px); border-radius: 6px; }
   .record-modal-header { padding: 16px; gap: 12px; }
   .record-modal-header h2 { font-size: 18px; }
   .record-modal-close { padding: 8px 12px; }
@@ -87,27 +100,27 @@
 .record-detail-body .ta-records td { white-space: normal; }
 .record-detail-body .ta-records td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .record-detail-body .achievement-history { max-height: 240px; overflow-y: auto; }
-.record-detail-body .progress-table { border: 1px solid #e8e5df; border-radius: 6px; padding-bottom: 0; }
+.record-detail-body .progress-table { border: 1px solid var(--line-soft); border-radius: 4px; padding-bottom: 0; }
 .record-detail-body .progress-table table { min-width: 640px; border-collapse: separate; border-spacing: 0; }
 .record-detail-body .progress-table th,
-.record-detail-body .progress-table td { padding: 12px 10px; border: 0; border-bottom: 1px solid #e8e5df; font-size: 12px; line-height: 1.6; }
-.record-detail-body .progress-table th { background: #f5f3ef; color: #6e655a; font-size: 11px; font-weight: 600; }
+.record-detail-body .progress-table td { padding: 12px 10px; border: 0; border-bottom: 1px solid var(--line-soft); font-size: 12px; line-height: 1.6; }
+.record-detail-body .progress-table th { background: var(--paper); color: var(--ink-brown-soft); font-size: 11px; font-weight: 600; }
 .record-detail-body .progress-table tr:last-child td { border-bottom: 0; }
 .record-detail-body .progress-table th:first-child,
-.record-detail-body .progress-table td:first-child { position: sticky; left: 0; z-index: 1; font-weight: 600; color: #524c44; box-shadow: 1px 0 #e8e5df; }
+.record-detail-body .progress-table td:first-child { position: sticky; left: 0; z-index: 1; font-weight: 600; color: var(--ink-brown); box-shadow: 1px 0 var(--line-soft); }
 .record-detail-body .progress-table td:first-child { background: #fff; }
 .record-detail-body .progress-table .slash { background-image: none; }
-.record-detail-body .nc { background: #f5f3ef; }
-.record-detail-body .nb { background: #ebe8e1; }
-.record-detail-body .nn { background: #dfd9cf; }
+.record-detail-body .nc { background: var(--cell-1); }
+.record-detail-body .nb { background: var(--cell-2); }
+.record-detail-body .nn { background: var(--cell-3); }
 .record-detail-body .empty { color: #aaa; }
 .record-detail-body .legend { gap: 10px 18px; margin-top: 12px; color: #777; font-size: 11px; }
-.record-detail-body .legend-swatch { border-color: #d8d3ca; border-radius: 2px; }
+.record-detail-body .legend-swatch { border-color: var(--line); border-radius: 2px; }
 .record-detail-body .inline-stats { margin-top: 12px; }
 .record-detail-body .achievement-history { margin-top: 32px; }
 .record-detail-body .achievement-history h3 { margin-bottom: 12px; color: #555; font-size: 13px; font-weight: 600; }
-.record-detail-body .achievement-history li { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid #e8e5df; color: #333; font-size: 12px; line-height: 1.8; }
-.record-detail-body .achievement-history li:first-child { border-top: 1px solid #e8e5df; }
+.record-detail-body .achievement-history li { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line-soft); color: #333; font-size: 12px; line-height: 1.8; }
+.record-detail-body .achievement-history li:first-child { border-top: 1px solid var(--line-soft); }
 .record-detail-body .achievement-history time { color: #777; font-size: 11px; font-variant-numeric: tabular-nums; }
 @media (max-width: 540px) {
   .record-detail-body .achievement-history li { grid-template-columns: 1fr; gap: 2px; }
@@ -135,10 +148,10 @@
 .record-card:has(.record-open) > .record-goal,
 .record-card:has(.record-open) > .record-updated,
 .record-card:has(.record-open) .record-header .record-status { display: none; }
-.record-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; color: #6e655a; font-size: 10px; }
-.record-tags span { padding: 2px 7px; border: 1px solid #e8e5df; border-radius: 3px; }
+.record-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; color: var(--ink-brown-soft); font-size: 10px; }
+.record-tags span { padding: 2px 7px; border: 1px solid var(--line-soft); border-radius: 2px; }
 .record-modal-content > .record-status { margin-bottom: 16px; }
 .event-history h3 { margin-bottom: 20px; font-family: Georgia, "Yu Mincho", "Hiragino Mincho ProN", "Times New Roman", serif; font-size: 16px; font-weight: 400; }
-.event-history h4 { margin: 24px 0 8px; color: #6e655a; font-size: 12px; font-weight: 600; }
+.event-history h4 { margin: 24px 0 8px; color: var(--ink-brown-soft); font-size: 12px; font-weight: 600; }
 .event-history ul { margin: 0; padding: 0; list-style: none; }
-.event-history li { padding: 10px 0; border-bottom: 1px solid #e8e5df; font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+.event-history li { padding: 10px 0; border-bottom: 1px solid var(--line-soft); font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
