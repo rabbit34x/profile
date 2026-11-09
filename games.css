@@ -21,7 +21,7 @@
 .records-count { display: flex; gap: 26px; margin-top: 16px; color: #666; font-size: 11px; }
 .records-count strong { margin-right: 5px; font-size: 19px; font-weight: 400; color: #111; }
 .record-card { position: relative; min-width: 0; background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 20px; overflow: hidden; }
-.record-masonry { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.record-masonry { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .record-masonry > .record-card { min-width: 0; }
 .record-masonry > .record-card[hidden], .record-filters[hidden], .record-empty[hidden] { display: none; }
 .record-filters { margin-bottom: 24px; }
