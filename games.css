@@ -143,11 +143,14 @@
 .games-page .page-title { letter-spacing: .04em; }
 .record-caption { display: none; }
 .record-card:has(.record-open) > .record-caption,
-.record-modal-content > .record-caption { display: block; margin: 16px 0 0; color: #666; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.record-modal-content > .record-caption { display: block; margin: 12px 0 0; color: #555; font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
 .record-card:has(.record-open) > .record-overview,
 .record-card:has(.record-open) > .record-goal,
 .record-card:has(.record-open) > .record-updated,
 .record-card:has(.record-open) .record-header .record-status { display: none; }
+/* 閉じたカード面ではタグを出さない（全カード共通の「ゲーム」等は情報量ゼロで、
+   下部に1つだけ浮いて見える。タグはモーダル内でのみ表示する） */
+.record-card:has(.record-open) > .record-tags { display: none; }
 .record-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; color: var(--ink-brown-soft); font-size: 10px; }
 .record-tags span { padding: 2px 7px; border: 1px solid var(--line-soft); border-radius: 2px; }
 .record-modal-content > .record-status { margin-bottom: 16px; }
