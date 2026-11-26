@@ -5,6 +5,7 @@
 ## 機能とドキュメント
 
 - [ビルド](docs/build.md) — 依存関係のインストールとサイト全体の生成
+- [開発サーバ](docs/dev-server.md) — Proxmox 上のプレビュー環境（必要な時だけ起動）
 - [共通コンポーネント](docs/components.md) — サイドバーとナビゲーションの一元管理
 - [趣味](docs/game-records.md) — ゲーム記録と好きなアニメの掲載
 - [アカウント一覧](docs/accounts.md) — 外部サービスへのリンク管理
